@@ -1,67 +1,67 @@
-# Zsh et Starship : les commandes et leur contexte
+# Zsh and Starship: commands and their context
 
 [← Guides](../README.md) · [Zsh](https://www.zsh.org/) · [Starship](https://starship.rs/)
 
-## Deux projets, deux rôles
+## Two projects, two roles
 
-**Zsh** est le shell : il lit les commandes, développe les alias, lance les programmes et gère l'édition de la ligne. **Starship** dessine l'invite avant la commande, avec des informations sur le dossier, Git ou les langages détectés. L'affichage de ces informations vient de Starship ; nous en choisissons la présentation.
+**Zsh** is the shell: it reads commands, expands aliases, runs programs, and handles command-line editing. **Starship** draws the prompt before a command, with directory, Git, or detected language information. Starship provides those capabilities; we choose their presentation.
 
-## Notre Zsh modulaire
+## Our modular Zsh configuration
 
-[`.zshrc`](../../home/dot_zshrc) charge les fichiers du [dossier Zsh](../../home/dot_config/zsh). On peut ainsi modifier les alias sans parcourir toute la configuration.
+[`.zshrc`](../../home/dot_zshrc) loads files from the [Zsh directory](../../home/dot_config/zsh). You can edit aliases without working through the entire configuration.
 
-| Module | Contenu |
+| Module | Contents |
 | --- | --- |
-| `exports.zsh` | Historique, variables et chemins d'outils |
-| `keybindings.zsh` | Raccourcis d'édition et de navigation |
-| `completion.zsh` | Initialisation et présentation de la complétion |
-| `plugins.zsh` | Starship et chargement des plugins déjà présents |
-| `appearance.zsh` | Styles de coloration et titre du terminal |
-| `aliases.zsh` | Raccourcis Git, Kubernetes et outils macOS |
-| `functions.zsh` | Navigation et petites commandes composées |
-| `python-venv.zsh` | Activation d'un environnement virtuel selon le répertoire |
+| `exports.zsh` | History, variables, and tool paths |
+| `keybindings.zsh` | Editing and navigation shortcuts |
+| `completion.zsh` | Completion initialization and presentation |
+| `plugins.zsh` | Starship and loading of already installed plugins |
+| `appearance.zsh` | Highlight styles and terminal title |
+| `aliases.zsh` | Git, Kubernetes, and macOS tool shortcuts |
+| `functions.zsh` | Navigation and small compound commands |
+| `python-venv.zsh` | Directory-based virtual environment activation |
 
-Quelques gestes configurés :
+Some configured interactions:
 
-| Commande / touche | Ce qu'elle fait |
+| Command / key | What it does |
 | --- | --- |
 | `gst` | `git status` |
-| `gl` | Historique Git en graphe |
-| `kgp` | `kubectl get pod` dans le contexte actif |
-| `kctx` | Afficher le contexte Kubernetes actif |
-| `mkcd demo` | Créer `demo` puis y entrer |
-| `n` | Ouvrir le dossier courant dans Neovim |
-| Ctrl-R | Rechercher dans l'historique |
-| Ctrl-A / Ctrl-E | Début / fin de ligne |
-| Option-← / Option-→ | Déplacement par mot selon les séquences émises par le terminal |
+| `gl` | Git history as a graph |
+| `kgp` | `kubectl get pod` in the active context |
+| `kctx` | Show the active Kubernetes context |
+| `mkcd demo` | Create `demo`, then enter it |
+| `n` | Open the current directory in Neovim |
+| Ctrl-R | Search history |
+| Ctrl-A / Ctrl-E | Beginning / end of line |
+| Option-← / Option-→ | Move by word, depending on the sequences emitted by the terminal |
 
-Les alias restent des commandes ordinaires : `kgp` exige kubectl et un accès Kubernetes ; `ls` est remplacé par eza. Les fonctions qui utilisent Git, fzf, bat ou Neovim exigent ces programmes.
+Aliases remain ordinary commands: `kgp` requires kubectl and Kubernetes access; `ls` is replaced by eza. Functions using Git, fzf, bat, or Neovim require those programs.
 
-## Notre prompt Starship
+## Our Starship prompt
 
-La [configuration Starship](../../home/dot_config/starship.toml) choisit une palette Catppuccin Macchiato, un chemin raccourci, une branche bleue et un état Git couleur pêche. La flèche de saisie est verte après un succès et rouge après une erreur.
+The [Starship configuration](../../home/dot_config/starship.toml) chooses a Catppuccin Mocha palette, shortened paths, a blue branch, and peach Git status. The input arrow is green after success and red after an error.
 
-Les compteurs Git distinguent notamment les changements locaux, les fichiers non suivis et les commits en avance ou en retard. Les modules de langages sont activés selon les fichiers reconnus dans le dossier et les outils disponibles.
+Git indicators distinguish local changes, untracked files, and commits ahead of or behind the remote. Language modules activate according to recognized files and available tools.
 
-Le nom d'hôte, l'horloge, la mémoire et le module Kubernetes sont désactivés. Le module d'IP locale reste activé pour les sessions SSH : le vérifier avant de publier une capture distante. Les glyphes demandent une police adaptée.
+Hostname, time, memory, and Kubernetes modules are disabled. The local-IP module remains enabled for SSH sessions: check it before publishing a remote-session screenshot. Glyphs require a suitable font.
 
-**Exemple de lecture, sans reproduire le rendu graphique :**
+**Reading example, not a reproduction of the graphical rendering:**
 
 ```text
-mon-projet on main (état Git) via version-du-langage
-❯ commande
+my-project on main (Git status) via language-version
+❯ command
 ```
 
-Le contenu réel dépend du projet et de son état ; aucune liste de services n'est codée dans le prompt.
+Actual contents depend on the project and its state; no service inventory is hardcoded in the prompt.
 
-## Essayer et adapter
+## Try and adapt
 
-Depuis le clone, lire puis appliquer uniquement le fichier Starship selon le [guide d'installation](../installation.md). Dans un nouveau shell, entrer dans un dépôt Git et comparer l'invite avant et après un changement de dossier. `starship explain` aide à identifier les modules affichés.
+From the clone, review and apply only the Starship file using the [installation guide](../installation.md). In a new shell, enter a Git repository and compare the prompt before and after changing directories. `starship explain` helps identify displayed modules.
 
-Les réglages privés se placent dans `~/.zshrc.local`, chargé à la fin de notre `.zshrc`. Ce fichier n'est pas distribué.
+Private settings belong in `~/.zshrc.local`, loaded at the end of our `.zshrc`. This file is not distributed.
 
-## Limites à connaître
+## Known limitations
 
-Les plugins de suggestions et de coloration ne sont pas inclus. Les liaisons de recherche par sous-chaîne sont conditionnelles ; ce snapshot charge les raccourcis avant les plugins, donc ne garantit pas ces liaisons dans un nouveau shell. Ctrl-R reste disponible.
+Suggestion and highlighting plugins are not bundled. Substring-history search bindings are conditional; this snapshot loads bindings before plugins, so it does not guarantee those bindings in a new shell. Ctrl-R remains available.
 
-L'activation Python source le script d'un environnement virtuel trouvé dans le projet : utiliser cette fonction uniquement dans des dossiers de confiance. Certains alias peuvent supprimer des ressources ou modifier macOS ; lire leur définition avant de les utiliser.
+Python activation sources the script of a virtual environment found in the project: use it only in trusted directories. Some aliases can delete resources or change macOS settings; read their definitions before use.

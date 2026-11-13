@@ -1,13 +1,13 @@
-# btop : surveiller les ressources
+# btop: monitor resources
 
-[← Accueil](../../../README.md) · [Projet d’origine : btop](https://github.com/aristocratos/btop) · [Guide détaillé](../../../docs/guides/autres-outils.md)
+[← Home](../../../README.md) · [Upstream project: btop](https://github.com/aristocratos/btop) · [Detailed guide](../../../docs/guides/autres-outils.md)
 
-btop est un moniteur de ressources en terminal. Notre fichier `btop.conf` sélectionne le thème TTY, un fond transparent, les panneaux CPU/mémoire/réseau/processus, l'arbre des processus et une mise à jour toutes les deux secondes.
+btop is a terminal resource monitor. Our `btop.conf` selects Catppuccin Mocha, a transparent background, CPU/memory/network/process panels, the process tree, and a two-second update interval.
 
-Destination : `~/.config/btop/btop.conf`. Installer btop puis lancer `btop`. Les données proviennent de la machine où il s'exécute ; le dépôt ne fournit aucun historique de mesures.
+The selected theme is `catppuccin_mocha`; its file is included under `themes/`. Destination: `~/.config/btop/btop.conf`, with the theme under `~/.config/btop/themes/`. Install btop, then run `btop`. Data comes from the machine where it runs; this repository supplies no measurement history.
 
-`save_config_on_exit = true` permet à btop d'enregistrer ses changements de réglages en quittant. Une modification locale de la configuration n'est pas automatiquement synchronisée vers ce dépôt.
+`save_config_on_exit = true` lets btop save setting changes on exit. A local configuration change is not automatically synchronized back to this repository.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

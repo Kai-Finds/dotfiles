@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import os
+import plistlib
 import subprocess
 import tempfile
 import tomllib
@@ -19,6 +20,25 @@ for path in source.rglob("*"):
         tomllib.loads(text)
     if path.suffix == ".zsh" or path.name in {"dot_zshrc", "dot_zprofile", "dot_zshenv", "dot_profile", "dot_bash_profile"}:
         subprocess.run(["zsh", "-n", str(path)], check=True)
+
+# Theme selections must resolve to bundled assets, not an unrelated local install.
+palette = tomllib.loads((source / "dot_config/starship.toml").read_text())
+assert palette["palette"] == "catppuccin_mocha"
+assert palette["palettes"]["catppuccin_mocha"]["base"] == "#1e1e2e"
+assert 'theme = "Catppuccin Mocha"' in (source / "dot_config/ghostty/config").read_text()
+assert 'colorscheme = "catppuccin-mocha"' in (source / "dot_config/nvim/lua/plugins/ui.lua").read_text()
+bat_theme = source / "dot_config/bat/themes/Catppuccin Mocha.tmTheme"
+assert plistlib.loads(bat_theme.read_bytes())["name"] == "Catppuccin Mocha"
+assert '--theme="Catppuccin Mocha"' in (source / "dot_config/bat/config").read_text()
+assert 'color_theme = "catppuccin_mocha"' in (source / "dot_config/btop/btop.conf").read_text()
+assert (source / "dot_config/btop/themes/catppuccin_mocha.theme").is_file()
+k9s = source / "Library/Application Support/k9s"
+assert 'skin: catppuccin-mocha-transparent' in (k9s / "config.yaml").read_text()
+assert "#1e1e2e" in (k9s / "skins/catppuccin-mocha-transparent.yaml").read_text()
+zed = json.loads((source / "dot_config/zed/themes/catppuccin-mocha.json").read_text())
+assert [theme["name"] for theme in zed["themes"]] == ["Catppuccin Mocha"]
+assert '"dark": "Catppuccin Mocha"' in (source / "dot_config/zed/settings.json").read_text()
+assert 'fg=#cdd6f4' in (source / "dot_tmux.conf").read_text()
 
 with tempfile.TemporaryDirectory(prefix="dotfiles-test-") as tmp:
     tmp = Path(tmp)

@@ -1,36 +1,36 @@
-# Illustrer les guides avec Ghostty
+# Illustrate the guides with Ghostty
 
 [← Guides](README.md)
 
-Les captures doivent montrer le rendu réel des fichiers partagés, avec une légende qui distingue la capacité du logiciel d'origine et notre réglage. Aucun screenshot n'est inclus à ce stade : l'outil de capture de la session de rédaction ne pouvait pas accéder à Ghostty.
+Screenshots should show the actual shared settings, with captions that distinguish upstream capabilities from our choices. No screenshots are included yet: the capture tool in the writing session could not access Ghostty.
 
-## Préparer la scène
+## Prepare the scene
 
-Utiliser un dossier de démonstration avec un fichier non sensible et, pour Starship, un dépôt Git de test. Ne pas prendre de captures d'une infrastructure privée ou d'un projet client. Fermer les autres onglets et éviter de laisser apparaître l'historique.
+Use a demonstration directory with a non-sensitive file and, for Starship, a test Git repository. Do not capture private infrastructure or client projects. Close other tabs and avoid exposing command history.
 
-Afficher les réglages de ce dépôt effectivement appliqués. Si une extension ou un thème supplémentaire est utilisé, l'indiquer dans la légende pour ne pas promettre un rendu que le dépôt ne fournit pas.
+Show the settings from this repository actually applied. If you use an additional extension or theme, state that in the caption so the image does not promise an appearance the repository cannot provide.
 
-Sur macOS, utiliser **Cmd-Maj-4**, puis **Espace** et cliquer sur la fenêtre Ghostty pour capturer sa fenêtre. Vérifier l'image entière avant de la placer dans `docs/images/` et de créer un lien Markdown. Ne pas publier d'images où des informations privées sont simplement cachées par un élément d'interface.
+On macOS, press **Cmd-Shift-4**, then **Space**, and click the Ghostty window to capture it. Review the entire image before placing it in `docs/images/` and adding a Markdown link. Do not publish images where private information is merely covered by another interface element.
 
-## Captures qui expliquent quelque chose
+## Screenshots that explain something
 
-| Fichier proposé | Scène réelle | Légende à adapter après observation |
+| Suggested file | Real scene | Caption to adapt after observation |
 | --- | --- | --- |
-| `ghostty-shell.png` | Un shell dans un dépôt de démonstration | « Ghostty affiche la fenêtre ; notre configuration choisit Mocha et l'opacité. Zsh interprète les commandes ; Starship affiche la branche Git avec notre palette Macchiato. » |
-| `ghostty-splits.png` | Deux panneaux après Cmd-D | « Les splits sont une fonction Ghostty. Notre fichier les associe à Cmd-D vers la droite et Cmd-Maj-D vers le bas. » |
-| `neovim-oil.png` | Neovim sur un fichier de démo et navigation Oil | « LazyVim fournit la base de l'éditeur. Notre configuration choisit Oil, un thème transparent et masque la barre de statut. » |
-| `k9s-demo.png` | Vue pods dans un cluster local de démonstration | « k9s fournit la vue Kubernetes ; notre fichier choisit TokyoNight et les colonnes affichées. Les données viennent du cluster de test. » |
+| `ghostty-shell.png` | A shell in a demonstration repository | “Ghostty provides the window; our settings choose Mocha and opacity. Zsh interprets commands; Starship displays the Git branch with our Mocha palette.” |
+| `ghostty-splits.png` | Two panes after Cmd-D | “Splits are a Ghostty feature. Our file binds a right split to Cmd-D and a downward split to Cmd-Shift-D.” |
+| `neovim-oil.png` | Neovim on a demo file with Oil navigation | “LazyVim provides the editor foundation. Our settings choose Oil, a transparent theme, and a hidden status line.” |
+| `k9s-demo.png` | A pods view in a local demonstration cluster | “k9s provides the Kubernetes view; our settings choose Catppuccin Mocha and the displayed columns. Data comes from the test cluster.” |
 
-Pour k9s, ne pas ouvrir un cluster de production pour produire l'image. Si aucun cluster de test n'est disponible, laisser cette capture de côté. Ne jamais ouvrir le plugin de décodage de Secrets pour illustrer l'interface.
+Do not open a production cluster just to capture k9s. If no test cluster is available, omit that screenshot. Never open the Secret-decoding plugin to illustrate the interface.
 
-## Légender sans attribuer les fonctions au mauvais projet
+## Attribute capabilities to the correct project
 
-Indiquer le nom du logiciel, les réglages visibles et le contexte de démonstration. Un avant/après doit utiliser le même dossier, le même état Git, les mêmes dimensions et la même version du logiciel ; seuls les réglages comparés changent.
+Include the application's name, visible settings, and demonstration context. A before/after comparison should use the same directory, Git state, dimensions, and application version; only the settings being compared should change.
 
-Exemple d'insertion, uniquement après création et revue du fichier :
+Example insertion, only after creating and reviewing the file:
 
 ```markdown
-![Ghostty avec le prompt Starship dans un dépôt de démonstration](images/ghostty-shell.png)
+![Ghostty with the Starship prompt in a demonstration repository](images/ghostty-shell.png)
 
-Ghostty + Zsh + Starship. Mocha pour la fenêtre, Macchiato pour le prompt ; données de démonstration.
+Ghostty + Zsh + Starship. Catppuccin Mocha throughout; demonstration data.
 ```

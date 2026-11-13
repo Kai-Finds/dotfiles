@@ -1,26 +1,26 @@
-# Zsh : les modules du shell
+# Zsh: shell modules
 
-[← Accueil](../../../README.md) · [Projet d’origine : Zsh](https://www.zsh.org/) · [Guide détaillé](../../../docs/guides/shell.md)
+[← Home](../../../README.md) · [Upstream project: Zsh](https://www.zsh.org/) · [Detailed guide](../../../docs/guides/shell.md)
 
-Zsh interprète les commandes et fournit l'édition de ligne. Nous séparons ses réglages en huit modules chargés par le `.zshrc` partagé.
+Zsh interprets commands and provides line editing. We split its settings into eight modules loaded by the shared `.zshrc`.
 
-| Fichier | Contenu |
+| File | Contents |
 | --- | --- |
-| `exports.zsh` | Variables et chemins |
-| `keybindings.zsh` | Édition de ligne et déplacements |
-| `completion.zsh` | Présentation et cache de complétion |
-| `plugins.zsh` | Starship et plugins optionnels déjà installés |
-| `appearance.zsh` | Couleurs et titre |
-| `aliases.zsh` | Alias Git, Kubernetes et macOS |
-| `functions.zsh` | Petites fonctions de navigation et d'outillage |
-| `python-venv.zsh` | Activation d'un environnement virtuel trouvé dans le projet |
+| `exports.zsh` | Variables and paths |
+| `keybindings.zsh` | Line editing and movement |
+| `completion.zsh` | Completion display and cache |
+| `plugins.zsh` | Starship and already installed optional plugins |
+| `appearance.zsh` | Colors and title |
+| `aliases.zsh` | Git, Kubernetes, and macOS aliases |
+| `functions.zsh` | Small navigation and tooling functions |
+| `python-venv.zsh` | Activation of a virtual environment found in the project |
 
-Essais utiles : `gst` affiche l'état Git ; `mkcd demo` crée un dossier et y entre ; Ctrl-R recherche dans l'historique. `kgp` interroge Kubernetes dans le contexte actif, uniquement si kubectl et les accès sont disponibles.
+Useful first tries: `gst` shows Git status; `mkcd demo` creates a directory and enters it; Ctrl-R searches history. `kgp` queries Kubernetes in the active context only when kubectl and access are available.
 
-Installer les exécutables avant d'utiliser leurs alias. Les plugins de suggestions et coloration ne sont pas inclus. Les raccourcis sont chargés avant les plugins dans ce snapshot : les liaisons conditionnelles de recherche par sous-chaîne ne sont pas garanties dans un nouveau shell.
+Install executables before using their aliases. Suggestion and highlighting plugins are not bundled. This snapshot loads bindings before plugins, so conditional substring-history bindings are not guaranteed in a new shell.
 
-Le module Python source un script du projet : à réserver aux dossiers de confiance. Certains alias de suppression ou fonctions macOS ont de vrais effets ; lire leur définition. Les réglages personnels se placent dans `~/.zshrc.local`.
+The Python module sources a project script: use it only with trusted directories. Some deletion aliases or macOS functions have real effects; read their definitions. Personal settings belong in `~/.zshrc.local`.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

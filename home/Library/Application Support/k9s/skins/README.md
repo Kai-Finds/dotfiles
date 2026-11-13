@@ -1,13 +1,13 @@
-# k9s : le thème TokyoNight
+# k9s: the Catppuccin Mocha theme
 
-[← Accueil](../../../../../README.md) · [Projet d’origine : k9s et les thèmes Tokyo Night](https://k9scli.io/topics/skins/) · [Guide détaillé](../../../../../docs/guides/k9s.md)
+[← Home](../../../../../README.md) · [Upstream project: k9s and Catppuccin](https://k9scli.io/topics/skins/) · [Detailed guide](../../../../../docs/guides/k9s.md)
 
-k9s fournit un mécanisme de skins. Notre `TokyoNight.yaml` définit les couleurs des tableaux, invites, logs, dialogues et bordures ; son fond reprend celui du terminal via la valeur `default`.
+k9s provides a skin mechanism. Our shared `catppuccin-mocha-transparent.yaml` defines colors for tables, prompts, logs, dialogs, and borders, with a transparent background.
 
-Le fichier parent `config.yaml` sélectionne ce thème avec `ui.skin: TokyoNight`. Installer le fichier sans sélectionner son nom dans la configuration ne suffit pas à activer ce choix.
+The parent `config.yaml` selects this theme with `ui.skin: catppuccin-mocha-transparent`. Installing the file without selecting its name in the configuration does not activate it.
 
-Destination : `~/Library/Application Support/k9s/skins/TokyoNight.yaml`. Ce thème est indépendant de Catppuccin Mocha dans Ghostty et Macchiato dans Starship. Il ne change pas les colonnes, les droits Kubernetes ou les commandes disponibles.
+Destination: `~/Library/Application Support/k9s/skins/catppuccin-mocha-transparent.yaml`. Mocha matches the shared palette used by Ghostty and Starship, while each application's interface remains its own. The skin does not change columns, Kubernetes permissions, or available commands.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

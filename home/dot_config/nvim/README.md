@@ -1,25 +1,25 @@
-# Neovim : notre configuration LazyVim
+# Neovim: our LazyVim configuration
 
-[← Accueil](../../../README.md) · [Projet d’origine : Neovim et LazyVim](https://www.lazyvim.org/) · [Guide détaillé](../../../docs/guides/neovim.md)
+[← Home](../../../README.md) · [Upstream project: Neovim and LazyVim](https://www.lazyvim.org/) · [Detailed guide](../../../docs/guides/neovim.md)
 
-Neovim est l'éditeur ; LazyVim fournit une base de plugins et de conventions. Nos fichiers choisissent une interface Catppuccin Mocha transparente, sans lualine ni sidebar Snacks, avec Oil pour la navigation.
+Neovim is the editor; LazyVim supplies a foundation of plugins and conventions. Our files choose a transparent Catppuccin Mocha interface without lualine or the Snacks sidebar, using Oil for navigation.
 
-| Fichier / dossier | Rôle |
+| File / directory | Role |
 | --- | --- |
-| `init.lua` | Charge `config.lazy` |
-| `lua/config/` | Démarrage lazy.nvim et options de l'éditeur |
-| `lua/plugins/` | Nos ajouts et surcharges de plugins |
-| `lazyvim.json` | Extras de langages, tests, debug et outils |
-| `lazy-lock.json` | Versions verrouillées des plugins |
-| `stylua.toml` | Formatage du Lua |
-| `LICENSE` | Licence conservée dans la configuration d'origine |
+| `init.lua` | Loads `config.lazy` |
+| `lua/config/` | lazy.nvim startup and editor options |
+| `lua/plugins/` | Our plugin additions and overrides |
+| `lazyvim.json` | Language, testing, debugging, and tooling extras |
+| `lazy-lock.json` | Locked plugin versions |
+| `stylua.toml` | Lua formatting |
+| `LICENSE` | License retained from the original configuration |
 
-En mode normal : `-` ouvre Oil, `Espace z` bascule Zen et `Espace k` lance k9s dans un flottant. Les capacités de ces plugins appartiennent à leurs auteurs ; notre code les assemble et règle leur comportement.
+In normal mode, `-` opens Oil, `Space z` toggles Zen, and `Space k` starts k9s in a floating window. These plugins' capabilities belong to their authors; our code assembles and configures them.
 
-Au premier démarrage, un accès réseau est nécessaire pour télécharger les plugins. Les serveurs de langage et utilitaires demandent leurs propres dépendances. Commencer par un fichier de démonstration et `:checkhealth` ; l'intégration k9s nécessite aussi un contexte autorisé.
+First startup requires network access to download plugins. Language servers and utilities require their own dependencies. Begin with a demonstration file and `:checkhealth`; k9s integration also requires an authorized context.
 
-Destination : `~/.config/nvim`. Le test isolé n'exécute ni Neovim ni ses plugins.
+Destination: `~/.config/nvim`. The isolated check does not run Neovim or its plugins.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

@@ -1,21 +1,21 @@
-# Ghostty : fenêtre, thème et raccourcis
+# Ghostty: window, theme, and shortcuts
 
-[← Accueil](../../../README.md) · [Projet d’origine : Ghostty](https://ghostty.org/docs) · [Guide détaillé](../../../docs/guides/ghostty.md)
+[← Home](../../../README.md) · [Upstream project: Ghostty](https://ghostty.org/docs) · [Detailed guide](../../../docs/guides/ghostty.md)
 
-Ghostty fournit la fenêtre de terminal, les onglets, les splits et le rendu du texte. Notre fichier `config` choisit Catppuccin Mocha, une opacité de 0,85, JetBrains Mono à 20 pt et un curseur bloc sans clignotement.
+Ghostty provides the terminal window, tabs, splits, and text rendering. Our `config` selects Catppuccin Mocha, opacity 0.85, JetBrains Mono at 20 pt, and a non-blinking block cursor.
 
-| Touches | Réglage |
+| Keys | Setting |
 | --- | --- |
-| Cmd-T | Nouvel onglet |
-| Cmd-D | Split vers la droite |
-| Cmd-Maj-D | Split vers le bas |
-| Cmd-Maj-← / → | Changer d'onglet |
-| Cmd-K | Effacer l'écran |
+| Cmd-T | New tab |
+| Cmd-D | Split to the right |
+| Cmd-Shift-D | Split downward |
+| Cmd-Shift-← / → | Switch tabs |
+| Cmd-K | Clear the screen |
 
-La souris change le focus et la sélection copie dans le presse-papiers. Adapter `font-size` et `background-opacity` selon sa lisibilité.
+The mouse changes focus, and selecting text copies it to the clipboard. Adjust `font-size` and `background-opacity` for readability.
 
-Destination : `~/.config/ghostty/config`. Le binaire et les polices doivent être installés séparément ; le Brewfile déclare Ghostty et une Nerd Font. Les options macOS ne garantissent pas le même résultat sur Linux.
+Destination: `~/.config/ghostty/config`. The application and fonts must be installed separately; the Brewfile declares Ghostty and a Nerd Font. macOS options do not guarantee the same result on Linux.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

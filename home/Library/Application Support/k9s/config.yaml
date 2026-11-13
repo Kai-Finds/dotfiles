@@ -19,7 +19,7 @@ k9s:
     reactive: true
     noIcons: false
     defaultsToFullScreen: false
-    skin: TokyoNight
+    skin: catppuccin-mocha-transparent
   # netshoot gives you curl/dig/nslookup/tcpdump/ss without touching the workload.
   shellPod:
     image: nicolaka/netshoot:latest

@@ -1,0 +1,39 @@
+{
+  "starship": {
+    "commit": "5906cc369dd8207e063c0e6e2d27bd0c0b567cb8",
+    "files": [
+      "themes/mocha.toml"
+    ],
+    "repository": "https://github.com/catppuccin/starship",
+    "changes": "Colors embedded in starship.toml; cyan, purple, and magenta aliases added."
+  },
+  "k9s": {
+    "commit": "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4",
+    "files": [
+      "dist/catppuccin-mocha-transparent.yaml"
+    ],
+    "repository": "https://github.com/catppuccin/k9s"
+  },
+  "btop": {
+    "commit": "f437574b600f1c6d932627050b15ff5153b58fa3",
+    "files": [
+      "themes/catppuccin_mocha.theme"
+    ],
+    "repository": "https://github.com/catppuccin/btop"
+  },
+  "bat": {
+    "commit": "6810349b28055dce54076712fc05fc68da4b8ec0",
+    "files": [
+      "themes/Catppuccin Mocha.tmTheme"
+    ],
+    "repository": "https://github.com/catppuccin/bat"
+  },
+  "zed": {
+    "commit": "4314cb05c74d141b7962290a41d6087e8c0ad02f",
+    "files": [
+      "themes/catppuccin-mauve.json"
+    ],
+    "repository": "https://github.com/catppuccin/zed",
+    "changes": "Mocha entry extracted from the mauve-accent theme family; family renamed to Catppuccin Mocha."
+  }
+}

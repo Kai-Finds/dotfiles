@@ -1,18 +1,18 @@
-# Neovim : démarrage et options
+# Neovim: startup and options
 
-[← Accueil](../../../../../README.md) · [Projet d’origine : LazyVim et lazy.nvim](https://www.lazyvim.org/configuration) · [Guide détaillé](../../../../../docs/guides/neovim.md)
+[← Home](../../../../../README.md) · [Upstream project: LazyVim and lazy.nvim](https://www.lazyvim.org/configuration) · [Detailed guide](../../../../../docs/guides/neovim.md)
 
-LazyVim définit les options et conventions de base de l'éditeur. Ces deux fichiers gardent nos écarts explicites.
+LazyVim defines the editor's base options and conventions. These two files keep our differences explicit.
 
-| Fichier | Notre configuration |
+| File | Our configuration |
 | --- | --- |
-| `lazy.lua` | Télécharge lazy.nvim si absent, importe LazyVim puis `plugins`, désactive luarocks et les vérifications automatiques de mises à jour |
-| `options.lua` | `pumblend = 0`, `winblend = 0` et `laststatus = 0` |
+| `lazy.lua` | Downloads lazy.nvim if absent, imports LazyVim then `plugins`, disables luarocks and automatic update checks |
+| `options.lua` | `pumblend = 0`, `winblend = 0`, and `laststatus = 0` |
 
-Les valeurs de blend à zéro participent au rendu des fenêtres flottantes avec le thème choisi. La suppression de la barre de statut nécessite aussi la désactivation de lualine dans `../plugins/ui.lua` ; modifier uniquement `laststatus` ne suffit pas à décrire l'ensemble de ce choix.
+Zero blend values contribute to floating-window rendering with the chosen theme. Hiding the status line also requires disabling lualine in `../plugins/ui.lua`; changing `laststatus` alone does not describe the entire choice.
 
-L'installation des plugins vient de lazy.nvim. Pour rechercher manuellement des mises à jour, utiliser `:Lazy check`. Vérifier les dépendances de la version LazyVim utilisée avant de considérer le premier démarrage comme validé.
+Plugin installation comes from lazy.nvim. Use `:Lazy check` to check for updates manually. Check the requirements of your LazyVim version before considering first startup validated.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

@@ -1,13 +1,13 @@
-# Library : les réglages macOS
+# Library: macOS settings
 
-[← Accueil](../../README.md) · [Projet d’origine : macOS et k9s](https://k9scli.io/topics/config/) · [Guide détaillé](../../docs/guides/k9s.md)
+[← Home](../../README.md) · [Upstream project: macOS and k9s](https://k9scli.io/topics/config/) · [Detailed guide](../../docs/guides/k9s.md)
 
-Ce dossier conserve l'emplacement macOS de la configuration k9s. Il ne contient pas une copie complète de la Library de la machine.
+This directory preserves the macOS location of k9s configuration. It is not a full copy of the machine's Library.
 
-Les fichiers sont sous `Application Support/k9s/`. Les réglages généraux, vues, alias et plugins sont distribués ; les logs, sauvegardes, données de clusters et kubeconfig sont exclus.
+Files live under `Application Support/k9s/`. General preferences, views, aliases, and plugins are distributed; logs, backups, cluster data, and kubeconfig are excluded.
 
-Consulter le README k9s dans ce sous-dossier pour connaître les effets des raccourcis avant utilisation.
+Read the k9s README in that subdirectory to understand shortcut effects before use.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

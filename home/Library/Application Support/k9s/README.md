@@ -1,24 +1,24 @@
-# k9s : vues, alias et plugins
+# k9s: views, aliases, and plugins
 
-[← Accueil](../../../../README.md) · [Projet d’origine : k9s](https://k9scli.io/) · [Guide détaillé](../../../../docs/guides/k9s.md)
+[← Home](../../../../README.md) · [Upstream project: k9s](https://k9scli.io/) · [Detailed guide](../../../../docs/guides/k9s.md)
 
-k9s fournit une interface terminal pour les ressources Kubernetes. Notre configuration règle son apparence et ajoute des conventions de navigation ; elle ne fournit ni cluster ni droit d'accès.
+k9s provides a terminal interface for Kubernetes resources. Our configuration chooses its appearance and navigation conventions; it supplies neither a cluster nor access rights.
 
-| Fichier | Contenu |
+| File | Contents |
 | --- | --- |
-| `config.yaml` | Rafraîchissement 2 s, logs, seuils et thème TokyoNight |
-| `aliases.yaml` | Noms courts, par exemple `:po`, `:dp`, `:no` et `:pvc` |
-| `views.yaml` | Colonnes workloads, images, ressources et opérateurs |
-| `jumps.yaml` | Navigation vers des ressources associées |
-| `plugins.yaml` | Raccourcis vers des utilitaires externes |
-| `skins/` | Palette TokyoNight |
+| `config.yaml` | 2 s refresh, logs, thresholds, and Catppuccin Mocha theme |
+| `aliases.yaml` | Short names, including `:po`, `:dp`, `:no`, and `:pvc` |
+| `views.yaml` | Workload, image, resource, and operator columns |
+| `jumps.yaml` | Navigation to related resources |
+| `plugins.yaml` | Shortcuts to external utilities |
+| `skins/` | Catppuccin Mocha transparent palette |
 
-Exemples de plugins : Maj-L appelle stern, Maj-T Trivy, Maj-G Grype, Maj-I kubectl/yq pour Argo CD. Les exécutables doivent être installés et les ressources correspondantes présentes. Le guide complet donne la table de toutes les touches et dépendances.
+Example plugins: Shift-L calls stern, Shift-T Trivy, Shift-G Grype, and Shift-I kubectl/yq for Argo CD. Executables must be installed and corresponding resources must exist. The complete guide lists every shortcut and dependency.
 
-**Maj-D et Maj-Z modifient le cluster** en lançant du debug ; Maj-Z crée un pod privilégié. Maj-B affiche les valeurs décodées d'un Secret. `readOnly: false` est conservé : commencer sur un contexte de test autorisé et lire `plugins.yaml` avant utilisation.
+**Shift-D and Shift-Z change the cluster** by running debugging actions; Shift-Z creates a privileged pod. Shift-B displays decoded Secret values. `readOnly: false` is retained: start with an authorized test context and read `plugins.yaml` before use.
 
-Destination : `~/Library/Application Support/k9s`. Vérifier `k9s info` et son contexte avant de démarrer. Les données `clusters/`, logs, sauvegardes et kubeconfig restent exclus.
+Destination: `~/Library/Application Support/k9s`. Check `k9s info` and your context before starting. `clusters/` data, logs, backups, and kubeconfig remain excluded.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

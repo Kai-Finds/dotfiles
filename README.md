@@ -1,91 +1,91 @@
 # Kai-Finds · dotfiles
 
-**Comprendre son terminal, puis le personnaliser.** Une configuration macOS / Apple Silicon à explorer, reprendre par morceaux et adapter à ses habitudes.
+**Understand your terminal, then make it yours.** A macOS / Apple Silicon setup to explore, adopt one piece at a time, and adapt to your habits.
 
-Ce dépôt partage nos réglages pour **Ghostty, Zsh, Starship, Neovim et k9s**, ainsi que quelques outils complémentaires. Les logiciels sont développés par leurs projets respectifs ; notre contribution est le choix de leurs réglages, raccourcis, thèmes et intégrations.
+This repository shares our settings for **Ghostty, Zsh, Starship, Neovim, and k9s**, plus a few supporting tools. Each application is developed by its own upstream project; our contribution is the selection of settings, shortcuts, themes, and integrations.
 
-[Commencer l'installation](docs/installation.md) · [Explorer les guides](docs/README.md) · [Voir tous les fichiers](docs/inventaire.md)
+[Start installing](docs/installation.md) · [Explore the guides](docs/README.md) · [Browse the file inventory](docs/inventaire.md)
 
-## Qui fait quoi ?
+## What does each tool do?
 
-Quand tu ouvres un terminal, plusieurs logiciels travaillent ensemble :
+Several applications work together when you open a terminal:
 
 ```mermaid
 flowchart TD
-    G[Ghostty · la fenêtre et son affichage] --> Z[Zsh · le shell qui interprète tes commandes]
-    S[Starship · l'invite et ses informations] --> Z
-    Z --> N[Neovim + LazyVim · éditer les fichiers]
-    Z --> K[k9s · explorer Kubernetes]
-    Z --> T[tmux · organiser des sessions de terminal]
+    G[Ghostty · the window and its rendering] --> Z[Zsh · the shell that interprets commands]
+    S[Starship · the prompt and its context] --> Z
+    Z --> N[Neovim + LazyVim · edit files]
+    Z --> K[k9s · explore Kubernetes]
+    Z --> T[tmux · organize terminal sessions]
 ```
 
-Un thème Ghostty change l'affichage de la fenêtre. Starship change l'invite qui précède une commande. Neovim et k9s ont ensuite leur propre interface et leurs propres réglages.
+A Ghostty theme changes the window's appearance. Starship changes the prompt before a command. Neovim and k9s then provide their own interfaces and settings.
 
-## Le logiciel d'origine et notre configuration
+## Upstream applications and our configuration
 
-| Projet d'origine | Ce qu'il fournit | Ce que nos dotfiles configurent | Guide |
+| Upstream project | What it provides | What our dotfiles configure | Guide |
 | --- | --- | --- | --- |
-| [Ghostty](https://ghostty.org/docs) | Un émulateur de terminal, avec onglets et splits | Catppuccin Mocha, opacité 85 %, police 20 pt, raccourcis macOS | [Ghostty](docs/guides/ghostty.md) |
-| [Zsh](https://www.zsh.org/) | Le shell, son langage et l'édition des commandes | Modules, alias Git/Kubernetes, navigation et fonctions | [Shell](docs/guides/shell.md) |
-| [Starship](https://starship.rs/) | Un moteur d'invite personnalisable | Palette Macchiato, chemin court, branche et état Git | [Shell](docs/guides/shell.md) |
-| [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/) | L'éditeur et une base de plugins déjà configurée | Oil à la place de la sidebar, interface allégée, thème transparent et intégration k9s | [Neovim](docs/guides/neovim.md) |
-| [k9s](https://k9scli.io/) | Une interface terminal pour Kubernetes | TokyoNight, colonnes DevOps, alias, jumps et commandes externes | [k9s](docs/guides/k9s.md) |
-| [tmux](https://github.com/tmux/tmux/wiki) | Des sessions, fenêtres et panneaux de terminal | Préfixe Ctrl-A, splits, barre supérieure et copie macOS | [Autres outils](docs/guides/autres-outils.md) |
+| [Ghostty](https://ghostty.org/docs) | A terminal emulator with tabs and splits | Catppuccin Mocha, 85% opacity, 20 pt font, macOS shortcuts | [Ghostty](docs/guides/ghostty.md) |
+| [Zsh](https://www.zsh.org/) | The shell, its language, and command-line editing | Modules, Git/Kubernetes aliases, navigation, and functions | [Shell](docs/guides/shell.md) |
+| [Starship](https://starship.rs/) | A customizable prompt engine | Mocha palette, short paths, Git branch and status | [Shell](docs/guides/shell.md) |
+| [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/) | The editor and a preconfigured plugin foundation | Oil instead of a sidebar, a quieter interface, a transparent theme, and k9s integration | [Neovim](docs/guides/neovim.md) |
+| [k9s](https://k9scli.io/) | A terminal interface for Kubernetes | Catppuccin Mocha, DevOps columns, aliases, jumps, and external commands | [k9s](docs/guides/k9s.md) |
+| [tmux](https://github.com/tmux/tmux/wiki) | Terminal sessions, windows, and panes | Ctrl-A prefix, splits, top status bar, and macOS clipboard integration | [Other tools](docs/guides/autres-outils.md) |
 
-Les complétions, LSP, diagnostics, vues Kubernetes et possibilités de plugins viennent des projets d'origine. Les guides distinguent ce socle des choix présents dans ce dépôt.
+Completion, LSP support, diagnostics, Kubernetes views, and plugin capabilities come from the upstream projects. The guides distinguish that foundation from the choices made in this repository.
 
-## À quoi ça sert au quotidien ?
+## What does this look like in daily use?
 
-- **Naviguer dans un projet** : Zsh interprète `gst`, notre alias appelle `git status`, Starship affiche la branche et les changements.
-- **Éditer sans sidebar permanente** : Neovim ouvre un fichier, `-` ouvre Oil pour parcourir son répertoire, `Espace z` active ponctuellement le mode Zen.
-- **Lire un état Kubernetes** : k9s affiche les ressources ; nos colonnes mettent notamment images, consommation et état en évidence. Les plugins donnent accès aux outils externes déjà installés.
-- **Organiser une session** : les splits Ghostty divisent la fenêtre ; tmux propose aussi ses propres sessions et panneaux à l'intérieur du terminal.
+- **Navigate a project:** Zsh interprets `gst`, our alias calls `git status`, and Starship shows the branch and changes.
+- **Edit without a permanent sidebar:** Neovim opens a file, `-` opens Oil to browse its directory, and `Space z` temporarily enables Zen mode.
+- **Inspect Kubernetes:** k9s displays resources; our columns highlight images, resource usage, and status. Plugins call external tools that are already installed.
+- **Organize a session:** Ghostty splits divide the application window; tmux also provides its own sessions and panes inside the terminal.
 
-## Adopter seulement ce qui t'intéresse
+## Adopt only what you need
 
-Le dépôt utilise [chezmoi](https://www.chezmoi.io/) pour copier les réglages à leur destination. Tu peux commencer par un seul fichier :
+This repository uses [chezmoi](https://www.chezmoi.io/) to copy settings to their destinations. You can start with one file:
 
 ```sh
 git clone https://github.com/Kai-Finds/dotfiles.git
 cd dotfiles
-# Prérequis : chezmoi installé. Cette commande ne modifie pas tes réglages.
+# Prerequisite: chezmoi is installed. This command does not change your settings.
 chezmoi --source "$PWD" diff ~/.config/starship.toml
 ```
 
-Après lecture du diff et sauvegarde, appliquer ce fichier avec `chezmoi --source "$PWD" apply ~/.config/starship.toml`. Pour voir le prompt, Starship doit aussi être installé et initialisé dans ton shell.
+After reviewing the diff and backing up your settings, apply that file with `chezmoi --source "$PWD" apply ~/.config/starship.toml`. Starship must also be installed and initialized in your shell to display the prompt.
 
-Le [guide d'installation](docs/installation.md) explique les dépendances, le test isolé, l'application progressive et les fichiers privés. Le [guide d'adaptation](docs/adaptation.md) décrit les différences avec la machine d'origine et le retour arrière.
+The [installation guide](docs/installation.md) covers dependencies, isolated checks, gradual adoption, and private files. The [adaptation guide](docs/adaptation.md) explains differences from the original machine and how to roll back.
 
-## À savoir avant de commencer
+## Before you start
 
-Ce partage contient **41 fichiers de configuration et de licence**, sans clés ni accès aux comptes. Le Brewfile installe une sélection d'outils ; les plugins Zsh, TPM et plusieurs utilitaires k9s demandent une installation séparée. Neovim télécharge ses plugins au premier lancement.
+The shared snapshot contains configuration and license files without keys or account access. The Brewfile installs selected tools; Zsh plugins, TPM, and several k9s utilities require separate installation. Neovim downloads its plugins on first launch.
 
-Les préférences sont personnelles : Ghostty et Neovim utilisent Mocha, Starship Macchiato, k9s TokyoNight. Ce ne sont pas des couleurs identiques. La taille de police et la transparence peuvent être adaptées dans chaque fichier.
+Catppuccin Mocha is the shared palette across the themed applications. Each application implements its own interface, so matching the palette does not make every screen identical. Adjust font sizes and transparency in each application's configuration.
 
-k9s conserve `readOnly: false`. Ses raccourcis de debug peuvent créer des ressources, et un raccourci affiche le contenu des Secrets. Le [guide k9s](docs/guides/k9s.md) détaille chaque commande avant utilisation.
+k9s retains `readOnly: false`. Its debugging shortcuts can create resources, and one shortcut displays Secret contents. The [k9s guide](docs/guides/k9s.md) explains each command before use.
 
-## Parcourir et contribuer
+## Browse and contribute
 
-| Dossier | Contenu |
+| Location | Contents |
 | --- | --- |
-| [`home/`](home/README.md) | Réglages avec un README par dossier ; chezmoi transforme `dot_` en `.` |
-| `docs/guides/` | Origine des logiciels, nos choix et raccourcis |
-| `docs/inventaire.md` | Inventaire des dotfiles détectés et liste distribuée |
-| `examples/` | Modèles pour l'identité Git et les réglages privés |
-| `tests/` | Application dans un HOME temporaire et démarrage isolé de Zsh |
-| `Brewfile` | Sélection d'outils macOS |
+| [`home/`](home/README.md) | Settings with a README in every directory; chezmoi turns `dot_` into `.` |
+| `docs/guides/` | Upstream applications, our choices, and shortcuts |
+| `docs/inventaire.md` | Detected dotfiles and the distributed file list |
+| `examples/` | Templates for Git identity and private settings |
+| `tests/` | Installation into a temporary HOME and isolated Zsh startup |
+| `Brewfile` | Selected macOS tools |
 
-Une bonne contribution explique le besoin, le réglage modifié et ses dépendances. Avant de proposer une modification :
+A useful contribution explains the need, the setting being changed, and its dependencies. Before proposing a change:
 
 ```sh
 python3 tests/verify.py
 gitleaks dir . --redact
 ```
 
-Pour illustrer les guides avec de vrais écrans, suivre le [guide de capture Ghostty](docs/captures.md). Les exemples textuels des guides expliquent les gestes ; ils ne constituent pas des captures ou une preuve de fonctionnement graphique.
+To illustrate the guides with real screens, follow the [Ghostty capture guide](docs/captures.md). Text examples explain interactions; they are not screenshots or proof of graphical behavior.
 
-## Crédits et licence
+## Credits and license
 
-Merci aux mainteneurs des projets cités, à [Catppuccin](https://github.com/catppuccin/catppuccin) et aux auteurs des plugins référencés dans nos fichiers. Ce dépôt distribue une configuration, pas les logiciels eux-mêmes.
+Thanks to the maintainers of the linked projects, [Catppuccin](https://github.com/catppuccin/catppuccin), and the plugin authors referenced in our files. This repository distributes configuration, not the applications themselves.
 
-Apache-2.0 ; les composants tiers conservent leurs licences respectives.
+Apache-2.0; third-party components retain their respective licenses. Bundled Catppuccin theme sources are pinned in [theme-sources.json](docs/theme-sources.json), with their MIT notices in [docs/licenses/](docs/licenses/).

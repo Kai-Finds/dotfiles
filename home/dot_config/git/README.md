@@ -1,15 +1,15 @@
-# Git : les exclusions communes
+# Git: shared ignore rules
 
-[← Accueil](../../../README.md) · [Projet d’origine : Git](https://git-scm.com/docs/gitignore) · [Guide détaillé](../../../docs/guides/autres-outils.md)
+[← Home](../../../README.md) · [Upstream project: Git](https://git-scm.com/docs/gitignore) · [Detailed guide](../../../docs/guides/autres-outils.md)
 
-Git fournit le suivi de versions et ses mécanismes d'exclusion. Notre fichier `ignore` ignore `**/.claude/settings.local.json` pour éviter d'ajouter ces préférences locales par défaut.
+Git provides version control and ignore mechanisms. Our `ignore` file ignores `**/.claude/settings.local.json` to avoid adding those local preferences by default.
 
-Destination : `~/.config/git/ignore`. Le fichier `home/dot_gitconfig` du dépôt référence ce chemin via `core.excludesfile` ; copier seulement le fichier d'exclusions ne configure pas cette référence.
+Destination: `~/.config/git/ignore`. The repository's `home/dot_gitconfig` references this path through `core.excludesfile`; copying the ignore file alone does not configure that reference.
 
-Notre `.gitconfig` inclut aussi `~/.gitconfig.local`, où placer son nom, son adresse de commit et son propre assistant d'authentification. Un modèle est fourni dans `examples/` à la racine du dépôt. Aucun identifiant n'est distribué.
+Our `.gitconfig` also includes `~/.gitconfig.local`, where you can set your name, commit email, and authentication helper. A template is provided in `examples/` at the repository root. No credentials are distributed.
 
-Cette exclusion ne couvre pas tous les secrets. Vérifier le diff et lancer le scan avant publication.
+This ignore rule does not cover every secret. Review the diff and run a scan before publishing.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

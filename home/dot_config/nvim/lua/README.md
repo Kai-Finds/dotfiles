@@ -1,16 +1,16 @@
-# Lua : chargement et plugins Neovim
+# Lua: Neovim startup and plugins
 
-[← Accueil](../../../../README.md) · [Projet d’origine : Neovim](https://neovim.io/) · [Guide détaillé](../../../../docs/guides/neovim.md)
+[← Home](../../../../README.md) · [Upstream project: Neovim](https://neovim.io/) · [Detailed guide](../../../../docs/guides/neovim.md)
 
-Neovim charge ses modules Lua depuis ce dossier. `init.lua` appelle `config.lazy`, qui configure le gestionnaire lazy.nvim et importe `plugins`.
+Neovim loads its Lua modules from this directory. `init.lua` calls `config.lazy`, which configures the lazy.nvim manager and imports `plugins`.
 
-- `config/` contient le démarrage et les options globales de notre configuration.
-- `plugins/` contient nos préférences et intégrations, fusionnées avec la base LazyVim.
+- `config/` contains startup and global options for our configuration.
+- `plugins/` contains our preferences and integrations, merged with the LazyVim foundation.
 
-Modifier le module qui possède le comportement voulu. Un ajout de plugin et un réglage d'éditeur sont deux changements différents ; ils sont documentés dans les README des deux dossiers.
+Edit the module that owns the behavior you want to change. Adding a plugin and changing an editor setting are different changes; the two directories' READMEs explain them.
 
-Les fichiers sont copiés dans `~/.config/nvim/lua`. Les README restent dans le dépôt et ne sont pas importés par Neovim.
+Files are copied to `~/.config/nvim/lua`. READMEs remain in the repository and are not imported by Neovim.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

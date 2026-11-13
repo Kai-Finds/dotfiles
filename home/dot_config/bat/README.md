@@ -1,13 +1,13 @@
-# bat : afficher les fichiers
+# bat: view files
 
-[← Accueil](../../../README.md) · [Projet d’origine : bat](https://github.com/sharkdp/bat) · [Guide détaillé](../../../docs/guides/autres-outils.md)
+[← Home](../../../README.md) · [Upstream project: bat](https://github.com/sharkdp/bat) · [Detailed guide](../../../docs/guides/autres-outils.md)
 
-bat fournit l'affichage coloré des fichiers dans le terminal. Notre fichier `config` active le style `numbers,changes` : numéros de lignes et indications de changements.
+bat provides syntax-highlighted file display in the terminal. Our `config` enables the `numbers,changes` style: line numbers and change indicators, using Catppuccin Mocha.
 
-La ligne de thème Catppuccin Macchiato est commentée : ce dépôt n'installe pas ce thème personnalisé et conserve donc le thème intégré choisi par bat.
+The Mocha theme is included under `themes/`. After applying it, run `bat cache --build` so bat can load the theme, then try `bat README.md` from a repository.
 
-Destination : `~/.config/bat/config`. Installer bat, puis essayer `bat README.md` depuis un dépôt. L'alias Zsh `bcat` retire la pagination et les décorations pour une lecture plus simple.
+Destination: `~/.config/bat/config`, with the theme under `~/.config/bat/themes/`. Install bat separately. The Zsh `bcat` alias removes pagination and decorations for simpler reading.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

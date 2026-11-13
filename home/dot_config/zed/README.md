@@ -1,13 +1,13 @@
-# Zed : quelques préférences visuelles
+# Zed: a few visual preferences
 
-[← Accueil](../../../README.md) · [Projet d’origine : Zed](https://zed.dev/) · [Guide détaillé](../../../docs/guides/autres-outils.md)
+[← Home](../../../README.md) · [Upstream project: Zed](https://zed.dev/) · [Detailed guide](../../../docs/guides/autres-outils.md)
 
-Zed est un éditeur graphique indépendant de Neovim. Notre `settings.json` choisit une interface de 16 pt, un texte de 15 pt, le thème Ayu Dark et les icônes par défaut de Zed.
+Zed is a graphical editor independent of Neovim. Our `settings.json` selects a 16 pt interface, 15 pt text, Catppuccin Mocha, and Zed's default icons.
 
-Destination : `~/.config/zed/settings.json`. Le fichier utilise les commentaires et virgules finales acceptés par Zed : il ne faut pas le traiter comme un document JSON strict.
+The Mocha theme is included in `themes/catppuccin-mocha.json`. Destination: `~/.config/zed/settings.json`, with the theme under `~/.config/zed/themes/`. Settings support comments and trailing commas, so do not treat this file as strict JSON.
 
-Zed n'est pas installé par le Brewfile. Ces préférences n'ajoutent pas de serveur de langage, compte ou connexion à un service. Elles peuvent être reprises indépendamment du reste des dotfiles.
+Zed is not installed by the Brewfile, and its graphical rendering has not been validated here. These preferences do not add a language server, account, or service connection. They can be adopted independently of the remaining dotfiles.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

@@ -1,4 +1,2 @@
-# bat default theme — matches the Catppuccin Macchiato terminal theme
-# and the Claude Code prompt palette (statusline + starship).
-# Optional custom theme: --theme="Catppuccin Macchiato"
+--theme="Catppuccin Mocha"
 --style="numbers,changes"

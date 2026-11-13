@@ -1,59 +1,59 @@
-# k9s : explorer Kubernetes depuis le terminal
+# k9s: explore Kubernetes from the terminal
 
-[← Guides](../README.md) · [Projet d'origine](https://k9scli.io/) · [Nos fichiers](../../home/Library/Application%20Support/k9s)
+[← Guides](../README.md) · [Upstream project](https://k9scli.io/) · [Our files](../../home/Library/Application%20Support/k9s)
 
-## Le projet d'origine
+## The upstream project
 
-k9s affiche et permet de gérer les ressources Kubernetes dans une interface terminal. Les vues de ressources, les logs, les filtres, les port-forwards et l'extensibilité par plugins sont fournis par k9s.
+k9s displays and manages Kubernetes resources in a terminal interface. Resource views, logs, filters, port-forwards, and plugin extensibility are provided by k9s.
 
-Notre dépôt choisit l'apparence, les colonnes et des raccourcis vers des commandes externes. Il ne fournit aucun cluster, kubeconfig, contexte ni droit d'accès.
+Our repository chooses the appearance, columns, and shortcuts to external commands. It does not provide a cluster, kubeconfig, context, or access rights.
 
-## Nos réglages
+## Our settings
 
-| Fichier | Apport de notre configuration |
+| File | Our configuration's contribution |
 | --- | --- |
-| `config.yaml` | Vue initiale pods, rafraîchissement 2 s, logs horodatés, seuils CPU/mémoire 70 % et 90 %, port-forward limité à 127.0.0.1 |
-| `skins/TokyoNight.yaml` | Palette TokyoNight et fond utilisant celui du terminal |
-| `views.yaml` | Colonnes choisies par ressource : images, consommation, état, nœud et informations DevOps |
-| `aliases.yaml` | Noms courts pour workloads, stockage, RBAC et ressources d'opérateurs |
-| `jumps.yaml` | Navigation de certaines ressources vers leurs ressources associées |
-| `plugins.yaml` | Appels à stern, scanners, outils RBAC et commandes kubectl |
+| `config.yaml` | Initial pods view, 2 s refresh, timestamped logs, CPU/memory thresholds of 70% and 90%, port-forward limited to 127.0.0.1 |
+| `skins/catppuccin-mocha-transparent.yaml` | Catppuccin Mocha palette with a transparent background |
+| `views.yaml` | Per-resource columns: images, usage, status, node, and DevOps information |
+| `aliases.yaml` | Short names for workloads, storage, RBAC, and operator resources |
+| `jumps.yaml` | Navigation from some resources to related resources |
+| `plugins.yaml` | Calls to stern, scanners, RBAC tools, and kubectl commands |
 
-Les valeurs CPU/mémoire dépendent des données disponibles dans le cluster ; nos colonnes ne créent pas de métriques. Les vues Argo CD, cert-manager, Kyverno et Prometheus exigent leurs CRD.
+CPU/memory values depend on data available in the cluster; our columns do not create metrics. Argo CD, cert-manager, Kyverno, and Prometheus views require their CRDs.
 
-## Naviguer avec nos alias
+## Navigate with our aliases
 
-Dans la barre de commande k9s, essayer `:po` pour les pods, `:dp` pour les déploiements, `:no` pour les nœuds ou `:pvc` pour les volumes réclamés. Le mécanisme d'alias vient de k9s ; ces noms sont déclarés dans notre fichier.
+In the k9s command bar, try `:po` for pods, `:dp` for deployments, `:no` for nodes, or `:pvc` for persistent volume claims. The alias mechanism comes from k9s; these names are declared in our file.
 
-Les jumps configurés relient notamment une application Argo CD aux pods de son namespace de destination et un certificat à son Secret associé. Ils dépendent de la structure des ressources et de leurs droits de lecture.
+Configured jumps link an Argo CD application to pods in its destination namespace and a certificate to its associated Secret, among others. They depend on the resource structure and read permissions.
 
-## Plugins : savoir ce que chaque touche lance
+## Plugins: know what each key runs
 
-Ces raccourcis dépendent de la ressource sélectionnée. Ils appellent de vrais programmes et héritent des droits du contexte courant.
+These shortcuts depend on the selected resource. They invoke real programs and inherit the current context's permissions.
 
-| Raccourci | Action configurée | Outil nécessaire / effet |
+| Shortcut | Configured action | Required tool / effect |
 | --- | --- | --- |
-| Maj-L | Logs multi-pods avec choix de période | stern |
-| Maj-E | Description et événements récents | kubectl |
-| Maj-T | Scanner les images des conteneurs | trivy ; filtre les sévérités et ignore les vulnérabilités sans correctif |
-| Maj-G | Scanner les images des conteneurs | grype ; résultats limités aux vulnérabilités corrigibles |
-| Maj-P | Audit de bonnes pratiques du namespace | popeye |
-| Maj-V | Rechercher les API obsolètes | pluto |
-| Maj-W | Lister les permissions d'un ServiceAccount | kubectl ; impersonation autorisée nécessaire |
-| Maj-H | Demander qui peut effectuer une opération | kubectl-who-can |
-| Maj-I | Lire l'état d'une application Argo CD | kubectl et yq |
-| Maj-B | Afficher les valeurs d'un Secret décodées en base64 | kubectl et jq ; affiche des données sensibles |
-| Maj-D | Ajouter un conteneur de debug netshoot au pod | kubectl ; **modifie le cluster** |
-| Maj-Z | Créer un pod de debug privilégié sur un nœud | kubectl ; **modifie le cluster** |
+| Shift-L | Multi-pod logs with a selectable time range | stern |
+| Shift-E | Description and recent events | kubectl |
+| Shift-T | Scan container images | trivy; filters severities and ignores vulnerabilities without a fix |
+| Shift-G | Scan container images | grype; limits results to fixable vulnerabilities |
+| Shift-P | Namespace best-practice audit | popeye |
+| Shift-V | Find deprecated APIs | pluto |
+| Shift-W | List a ServiceAccount's permissions | kubectl; authorized impersonation required |
+| Shift-H | Ask who can perform an operation | kubectl-who-can |
+| Shift-I | Read Argo CD application status | kubectl and yq |
+| Shift-B | Display base64-decoded Secret values | kubectl and jq; displays sensitive data |
+| Shift-D | Add a netshoot debugging container to a pod | kubectl; **changes the cluster** |
+| Shift-Z | Create a privileged debugging pod on a node | kubectl; **changes the cluster** |
 
-Les plugins de scan utilisent les références d'images déclarées par le pod, sans résolution explicite vers le digest d'exécution. Ils ne prouvent donc pas à eux seuls l'état exact du binaire déployé. Les différences de filtres Trivy/Grype empêchent une comparaison directe de leurs comptes.
+Scan plugins use image references declared by the pod without explicitly resolving the running image digest. They do not, by themselves, prove the state of the exact deployed binary. Different Trivy/Grype filters prevent direct comparison of their counts.
 
-`readOnly: false` est conservé. Ne pas supposer que les plugins sont bloqués en passant simplement l'interface en lecture seule : leurs commandes et leurs droits doivent aussi être contrôlés. Aucun de ces plugins n'est exécuté par le test du dépôt.
+`readOnly: false` is retained. Do not assume switching the interface to read-only blocks plugins: their commands and permissions also need to be controlled. None of these plugins is run by the repository check.
 
-## Premier lancement
+## First launch
 
-Sur macOS, nos fichiers vont dans `~/Library/Application Support/k9s`. [La documentation k9s](https://k9scli.io/topics/config/) explique les emplacements ; `k9s info` indique ceux de ta machine.
+On macOS, our files go to `~/Library/Application Support/k9s`. The [k9s documentation](https://k9scli.io/topics/config/) explains configuration locations; `k9s info` reports those used on your machine.
 
-Vérifier son contexte avec `kubectl config current-context` avant de lancer k9s. Pour une découverte, utiliser un cluster de test déjà autorisé et commencer par les vues et les alias. Les utilitaires des plugins sont optionnels et ne sont pas tous installés par notre Brewfile.
+Check your context with `kubectl config current-context` before starting k9s. For a first look, use an already authorized test cluster and begin with views and aliases. Plugin utilities are optional and are not all installed by our Brewfile.
 
-Ne jamais partager une capture contenant un Secret, des identifiants ou les noms et adresses d'une infrastructure privée. Voir le [guide de capture](../captures.md).
+Never share screenshots containing Secrets, credentials, or private infrastructure names and addresses. See the [capture guide](../captures.md).

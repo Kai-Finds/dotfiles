@@ -1,11 +1,11 @@
-# Application Support : la configuration k9s
+# Application Support: k9s configuration
 
-[← Accueil](../../../README.md) · [Projet d’origine : k9s](https://k9scli.io/topics/config/) · [Guide détaillé](../../../docs/guides/k9s.md)
+[← Home](../../../README.md) · [Upstream project: k9s](https://k9scli.io/topics/config/) · [Detailed guide](../../../docs/guides/k9s.md)
 
-Sur macOS, k9s peut lire sa configuration dans `~/Library/Application Support/k9s`. Ce dossier garde cet emplacement plutôt que de forcer un chemin Linux sous `.config`.
+On macOS, k9s can read its configuration from `~/Library/Application Support/k9s`. This directory retains that location rather than forcing a Linux path under `.config`.
 
-`k9s info` permet de vérifier les chemins utilisés sur sa propre machine. Le sous-dossier `k9s/` contient son README, les fichiers distribués et le thème. Aucun autre dossier d'application de la machine n'est copié ici.
+`k9s info` reports the paths used on your machine. The `k9s/` subdirectory contains its README, shared files, and theme. No other application directory from the machine is copied here.
 
-## Appliquer ces réglages
+## Apply these settings
 
-Lire le [guide d’installation](../../../docs/installation.md) et le diff chezmoi avant application. Les fichiers README restent dans le dépôt : ils sont exclus de l’installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.

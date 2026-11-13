@@ -1,0 +1,22 @@
+# Never add machine state or private overrides.
+.DS_Store
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+*.log
+*.bak
+*.zwc
+__pycache__/
+*history*
+!*substring-search*
+**/auth.json
+**/credentials*
+**/id_rsa*
+**/id_ed25519*
+**/*.pem
+**/*.key
+
+# Sanitized templates are intentionally shareable.
+!examples/*.example

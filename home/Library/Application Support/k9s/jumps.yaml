@@ -1,0 +1,17 @@
+# K9s custom jumps — Enter on a CR jumps to the resource that matters.
+# Docs: https://k9scli.io/topics/jumps/
+jumps:
+  # Argo CD app -> pods living in the app's destination namespace
+  argoproj.io/v1alpha1/applications:
+    targetGVR: v1/pods
+    targetNamespace: "{{ .spec.destination.namespace }}"
+
+  # cert-manager Certificate -> the Secret holding the cert
+  cert-manager.io/v1/certificates:
+    targetGVR: v1/secrets
+    fieldSelector: "metadata.name={{ .spec.secretName }}"
+
+  # SealedSecret -> the Secret it decrypts to (same name)
+  bitnami.com/v1alpha1/sealedsecrets:
+    targetGVR: v1/secrets
+    fieldSelector: "metadata.name={{ .metadata.name }}"

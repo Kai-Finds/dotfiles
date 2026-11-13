@@ -1,0 +1,222 @@
+# K9s custom views — tuned for daily DevSecOps triage.
+# Docs: https://k9scli.io/topics/columns/
+# Column syntax: NAME<:jsonpath><|flags>  (flags: T=age N=number W=wide-only S=force-show H=hide L/R=align)
+views:
+  # ── Workloads ─────────────────────────────────────────────────────────────
+  v1/pods:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - READY|S
+      - STATUS|S
+      - RESTARTS|N
+      - CPU|N
+      - MEM|N
+      - '%CPU/R|N'
+      - '%MEM/R|N'
+      - QOS|S
+      - IP|S
+      - NODE|S
+      - AGE|T
+      - IMAGE:.spec.containers[0].image|W
+      - SERVICE-ACCOUNT|W
+      - LAST RESTART|W
+
+  apps/v1/deployments:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - READY|S
+      - UP-TO-DATE|N
+      - AVAILABLE|N
+      - IMAGES:.spec.template.spec.containers[*].image|S
+      - STRATEGY:.spec.strategy.type|W
+      - AGE|T
+
+  apps/v1/statefulsets:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - READY|S
+      - SERVICE|S
+      - IMAGES:.spec.template.spec.containers[*].image|S
+      - AGE|T
+
+  apps/v1/daemonsets:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - DESIRED|N
+      - CURRENT|N
+      - READY|N
+      - UP-TO-DATE|N
+      - AVAILABLE|N
+      - IMAGES:.spec.template.spec.containers[*].image|S
+      - NODE-SELECTOR:.spec.template.spec.nodeSelector|W
+      - AGE|T
+
+  batch/v1/jobs:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - COMPLETIONS|S
+      - DURATION|S
+      - IMAGES:.spec.template.spec.containers[*].image|W
+      - AGE|T
+
+  batch/v1/cronjobs:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - SCHEDULE|S
+      - SUSPEND|S
+      - ACTIVE|N
+      - LAST_SCHEDULE|S
+      - IMAGES:.spec.jobTemplate.spec.template.spec.containers[*].image|W
+      - AGE|T
+
+  # ── Cluster / Infra ──────────────────────────────────────────────────────
+  v1/nodes:
+    columns:
+      - NAME|S
+      - STATUS|S
+      - ROLE|S
+      - VERSION|S
+      - TAINTS|S
+      - PODS|N
+      - CPU|N
+      - CPU/A|N
+      - '%CPU|N'
+      - MEM|N
+      - MEM/A|N
+      - '%MEM|N'
+      - INTERNAL-IP|S
+      - EXTERNAL-IP|S
+      - AGE|T
+      - ARCH|W
+      - OS-IMAGE|W
+      - KERNEL|W
+
+  # ── Networking / Exposure ────────────────────────────────────────────────
+  v1/services:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - TYPE|S
+      - CLUSTER-IP|S
+      - EXTERNAL-IP|S
+      - PORTS|S
+      - SELECTOR|W
+      - AGE|T
+
+  networking.k8s.io/v1/ingresses:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - CLASS|S
+      - HOSTS|S
+      - ADDRESS|S
+      - PORTS|S
+      - TLS:.spec.tls[*].secretName|W
+      - AGE|T
+
+  # ── Storage / Config ─────────────────────────────────────────────────────
+  v1/persistentvolumeclaims:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - STATUS|S
+      - VOLUME|S
+      - CAPACITY|N
+      - ACCESS MODES|S
+      - STORAGECLASS|S
+      - AGE|T
+
+  v1/persistentvolumes:
+    columns:
+      - NAME|S
+      - CAPACITY|N
+      - ACCESS MODES|S
+      - RECLAIM POLICY|S
+      - STATUS|S
+      - CLAIM|S
+      - STORAGECLASS|S
+      - REASON|W
+      - AGE|T
+
+  v1/secrets:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - TYPE|S
+      - DATA|N
+      - IMMUTABLE:.immutable|W
+      - AGE|T
+
+  v1/configmaps:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - DATA|N
+      - IMMUTABLE:.immutable|W
+      - AGE|T
+
+  v1/serviceaccounts:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - SECRETS:.secrets[*].name|W
+      - AGE|T
+
+  # ── Debugging ────────────────────────────────────────────────────────────
+  v1/events:
+    columns:
+      - NAMESPACE|S
+      - LAST SEEN|T
+      - TYPE|S
+      - REASON|S
+      - OBJECT|S
+      - MESSAGE|S
+      - SOURCE|W
+
+  # ── GitOps (Argo CD) ─────────────────────────────────────────────────────
+  argoproj.io/v1alpha1/applications:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - SYNC STATUS|S
+      - HEALTH STATUS|S
+      - PROJECT|W
+      - REVISION:.status.sync.revision|W
+      - DEST-NS:.spec.destination.namespace|W
+      - AGE:.metadata.creationTimestamp|T
+
+  # ── TLS / cert-manager ───────────────────────────────────────────────────
+  cert-manager.io/v1/certificates:
+    columns:
+      - NAMESPACE|S
+      - NAME|S
+      - READY|S
+      - SECRET|S
+      - ISSUER|S
+      - EXPIRY:.status.notAfter|W
+      - RENEWAL:.status.renewalTime|W
+      - MESSAGE:.status.conditions[?(@.type=="Ready")].message|W
+      - AGE|T
+
+  cert-manager.io/v1/clusterissuers:
+    columns:
+      - NAME|S
+      - READY|S
+      - AGE|T
+
+  # ── Policy (Kyverno reports) ─────────────────────────────────────────────
+  wgpolicyk8s.io/v1alpha2/clusterpolicyreports:
+    columns:
+      - NAME|S
+      - PASS|N
+      - FAIL|N
+      - WARN|N
+      - ERROR|N
+      - SKIP|N
+      - AGE:.metadata.creationTimestamp|T

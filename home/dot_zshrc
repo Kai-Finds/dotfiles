@@ -1,0 +1,84 @@
+#!/bin/zsh
+#==============================================================================
+# FICHIER DE CONFIGURATION ZSH MODULAIRE POUR macOS
+# Auteur: h4ckm1n
+# Dernière mise à jour: 2025-01-26
+#==============================================================================
+
+#==============================================================================
+# SECTION 1: PARAMÈTRES DE BASE
+#==============================================================================
+
+# Options ZSH
+setopt autocd              # Changer de répertoire en tapant simplement son nom
+setopt correct             # Correction automatique des erreurs
+setopt interactivecomments # Autoriser les commentaires en mode interactif
+setopt magicequalsubst     # Activer l'expansion des noms de fichiers pour les arguments du type 'anything=expression'
+setopt nonomatch           # Masquer les messages d'erreur s'il n'y a pas de correspondance pour le modèle
+setopt notify              # Signaler immédiatement l'état des tâches en arrière-plan
+setopt numericglobsort     # Trier les noms de fichiers numériquement quand cela a du sens
+setopt promptsubst         # Activer la substitution de commande dans l'invite
+
+# Configuration de l'historique
+setopt hist_expire_dups_first # Supprimer d'abord les doublons lorsque HISTFILE dépasse HISTSIZE
+setopt hist_ignore_dups       # Ignorer les commandes dupliquées dans l'historique
+setopt hist_ignore_space      # Ignorer les commandes commençant par un espace
+setopt hist_verify            # Afficher la commande avec expansion de l'historique avant de l'exécuter
+setopt share_history          # Partager les données de l'historique des commandes entre sessions (utile pour macOS)
+
+#==============================================================================
+# SECTION 2: OPTIMISATIONS SPÉCIFIQUES À macOS
+#==============================================================================
+
+# Augmenter la limite de descripteurs de fichiers
+ulimit -n 65536 > /dev/null 2>&1
+
+# Désactiver IPv6 sur Wi-Fi pour de meilleures performances
+# networksetup -setv6off Wi-Fi > /dev/null 2>&1
+
+#==============================================================================
+# SECTION 3: CHARGEMENT DES MODULES
+#==============================================================================
+
+# Chemin vers les modules de configuration
+ZSH_CONFIG_DIR="$HOME/.config/zsh"
+
+# Charger tous les modules dans l'ordre approprié
+[[ -f "$ZSH_CONFIG_DIR/exports.zsh" ]] && source "$ZSH_CONFIG_DIR/exports.zsh"
+[[ -f "$ZSH_CONFIG_DIR/keybindings.zsh" ]] && source "$ZSH_CONFIG_DIR/keybindings.zsh"
+[[ -f "$ZSH_CONFIG_DIR/completion.zsh" ]] && source "$ZSH_CONFIG_DIR/completion.zsh"
+[[ -f "$ZSH_CONFIG_DIR/plugins.zsh" ]] && source "$ZSH_CONFIG_DIR/plugins.zsh"
+[[ -f "$ZSH_CONFIG_DIR/appearance.zsh" ]] && source "$ZSH_CONFIG_DIR/appearance.zsh"
+[[ -f "$ZSH_CONFIG_DIR/aliases.zsh" ]] && source "$ZSH_CONFIG_DIR/aliases.zsh"
+[[ -f "$ZSH_CONFIG_DIR/functions.zsh" ]] && source "$ZSH_CONFIG_DIR/functions.zsh"
+[[ -f "$ZSH_CONFIG_DIR/python-venv.zsh" ]] && source "$ZSH_CONFIG_DIR/python-venv.zsh"
+
+# ngrok completion (lazy loaded)
+_ngrok_completion() {
+  if command -v ngrok &>/dev/null && [[ ! -f ~/.zsh/cache/ngrok_completion ]]; then
+    mkdir -p ~/.zsh/cache
+    ngrok completion > ~/.zsh/cache/ngrok_completion
+  fi
+  [[ -f ~/.zsh/cache/ngrok_completion ]] && source ~/.zsh/cache/ngrok_completion
+}
+alias ngrok='_ngrok_completion && unalias ngrok && ngrok'
+command -v wake >/dev/null && eval "$(wake init zsh)"
+
+
+# Homebrew sbin (bird/network tools, etc.) for non-login shells
+export PATH="/opt/homebrew/sbin:$PATH"
+
+
+# Added by Claude Code: npm global bins
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+
+# Ensure ~/.local/bin is on PATH (claude, uv, wake, etc.)
+export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+
+# Private machine settings are never tracked.
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

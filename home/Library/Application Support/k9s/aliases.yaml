@@ -1,0 +1,70 @@
+aliases:
+  # ── Core views ──────────────────────────────────────────────
+  po: pods
+  dp: deployments
+  sts: statefulsets
+  ds: daemonsets
+  jo: jobs
+  cj: cronjobs
+  rs: replicasets
+  rc: replicationcontrollers
+  svc: services
+  ep: endpoints
+  ing: ingresses
+  ingc: ingressclasses
+  np: networkpolicies
+
+  # ── Config / storage ────────────────────────────────────────
+  cm: configmaps
+  sec: v1/secrets
+  pvc: persistentvolumeclaims
+  pv: persistentvolumes
+  sc: storageclasses
+  quota: resourcequotas
+  limits: limitranges
+
+  # ── Cluster / scheduling ────────────────────────────────────
+  no: nodes
+  ns: namespaces
+  ev: events
+  evt: events
+  pdb: poddisruptionbudgets
+  hpa: horizontalpodautoscalers
+  crd: customresourcedefinitions
+  csr: certificatesigningrequests
+  prio: priorityclasses
+  rt: runtimeclasses
+
+  # ── RBAC / identity ─────────────────────────────────────────
+  sa: serviceaccounts
+  ro: roles
+  cr: clusterroles
+  rb: rolebindings
+  crb: clusterrolebindings
+
+  # ── GitOps ──────────────────────────────────────────────────
+  app: argoproj.io/v1alpha1/applications
+  apps: applications
+  appset: applicationsets
+  proj: appprojects
+
+  # ── TLS / secrets management ────────────────────────────────
+  cert: certificates
+  certs: certificates
+  iss: issuers
+  ciss: clusterissuers
+  ssec: sealedsecrets
+
+  # ── Policy ──────────────────────────────────────────────────
+  polrep: policyreports
+  cpolrep: clusterpolicyreports
+  cpol: clusterpolicies
+  pol: policies
+  polex: policyexceptions
+
+  # ── Observability CRs (if present) ──────────────────────────
+  prom: monitoring.coreos.com/v1/Prometheus
+  alert: monitoring.coreos.com/v1/Alertmanager
+  smon: monitoring.coreos.com/v1/ServiceMonitor
+  pmon: monitoring.coreos.com/v1/PodMonitor
+  pr: monitoring.coreos.com/v1/PrometheusRule

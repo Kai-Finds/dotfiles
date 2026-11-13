@@ -1,0 +1,15 @@
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Homebrew: use git taps instead of the API (formulae.brew.sh / the API are unreachable on this network)
+# export HOMEBREW_NO_INSTALL_FROM_API=1  # Only if the Homebrew API is unreachable.
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# Ensure ~/.local/bin is on PATH (claude, uv, wake, etc.)
+export PATH="$HOME/.local/bin:$PATH"

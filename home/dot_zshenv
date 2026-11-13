@@ -1,0 +1,4 @@
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# k9s/kubectl/git edit with nvim (aliases do not reach subprocesses)
+export EDITOR=nvim VISUAL=nvim KUBE_EDITOR=nvim

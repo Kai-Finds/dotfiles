@@ -1,0 +1,96 @@
+# Tokyo Night Theme Adaptation for K9s with Consideration for Default Background
+foreground: &foreground "#C0CAF5" # Tokyo Night foreground
+background: &background default # Use terminal's default, potentially transparent background
+current_line: &current_line "#414868" # Tokyo Night current line color
+selection: &selection "#414868" # Tokyo Night selection color
+comment: &comment "#A9B1D6" # Tokyo Night comment color
+cyan: &cyan "#7DCFFF" # Tokyo Night cyan equivalent
+green: &green "#9ECE6A" # Tokyo Night green
+orange: &orange "#E0AF68" # Tokyo Night orange
+pink: &pink "#F7768E" # Tokyo Night pink
+purple: &purple "#BB9AF7" # Tokyo Night purple
+red: &red "#ff5555" # Dracula red, as Tokyo Night lacks a direct red match
+yellow: &yellow "#E0AF68" # Tokyo Night yellow (using orange as no direct yellow)
+blue: &blue "#7AA2F7" # Tokyo Night blue
+
+k9s:
+  body:
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *purple
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *blue
+  info:
+    fgColor: *blue
+    sectionColor: *foreground
+  dialog:
+    fgColor: *foreground
+    bgColor: *background
+    buttonFgColor: *foreground
+    buttonBgColor: *purple
+    buttonFocusFgColor: *yellow
+    buttonFocusBgColor: *pink
+    labelFgColor: *orange
+    fieldFgColor: *foreground
+  frame:
+    border:
+      fgColor: *selection
+      focusColor: *current_line
+    menu:
+      fgColor: *foreground
+      keyColor: *blue
+      numKeyColor: *blue
+    crumbs:
+      fgColor: *foreground
+      bgColor: *current_line
+      activeColor: *current_line
+    status:
+      newColor: *cyan
+      modifyColor: *purple
+      addColor: *green
+      errorColor: *red
+      highlightColor: *orange
+      killColor: *comment
+      completedColor: *comment
+    title:
+      fgColor: *foreground
+      bgColor: *current_line
+      highlightColor: *orange
+      counterColor: *purple
+      filterColor: *pink
+  views:
+    charts:
+      bgColor: *background
+      defaultDialColors:
+        - *purple
+        - *red
+      defaultChartColors:
+        - *purple
+        - *red
+    table:
+      fgColor: *foreground
+      bgColor: *background
+      header:
+        fgColor: *foreground
+        bgColor: *background
+        sorterColor: *cyan
+    xray:
+      fgColor: *foreground
+      bgColor: *background
+      cursorColor: *current_line
+      graphicColor: *purple
+      showIcons: false
+    yaml:
+      keyColor: *pink
+      colonColor: *purple
+      valueColor: *foreground
+    logs:
+      fgColor: *foreground
+      bgColor: *background
+      indicator:
+        fgColor: *foreground
+        bgColor: *purple
+        toggleOnColor: *green
+        toggleOffColor: *cyan

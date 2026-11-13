@@ -1,0 +1,218 @@
+# K9s plugins — read-first DevSecOps toolbox.
+#
+# Conventions:
+#   * every shortcut is Shift+<letter>: no collision with k9s built-ins
+#   * debug-pod and debug-node mutate the cluster when invoked
+#   * $NAME/$NAMESPACE/$RESOURCE_NAME/$COL-* are injected by k9s
+#   * inputs are exposed to the command as $INPUT_<NAME>
+#
+# Tools required: stern, trivy, grype, popeye, pluto, jq, yq, kubectl-who-can
+plugins:
+
+  # ── Logs / live debugging ────────────────────────────────────────────────
+  logs-stern:
+    shortCut: Shift-L
+    description: "Logs — stern (multi-pod, tail)"
+    scopes:
+      - pods
+      - deployments
+      - statefulsets
+      - daemonsets
+      - jobs
+    command: stern
+    background: false
+    args:
+      - -n
+      - $NAMESPACE
+      - --since
+      - $INPUT_SINCE
+      - --tail
+      - "200"
+      - $NAME
+    inputs:
+      - name: since
+        label: "Since"
+        type: dropdown
+        options: ["15m", "1h", "6h", "24h"]
+        default: "1h"
+        required: true
+
+  debug-pod:
+    shortCut: Shift-D
+    description: "Debug — ephemeral netshoot container in pod"
+    scopes:
+      - pods
+    command: kubectl
+    background: false
+    args:
+      - debug
+      - -it
+      - -n
+      - $NAMESPACE
+      - $NAME
+      - --image=nicolaka/netshoot:latest
+      - --target=$NAME
+      - --profile=netadmin
+
+  debug-node:
+    shortCut: Shift-Z
+    description: "Debug — privileged netshoot pod on node"
+    scopes:
+      - nodes
+    command: kubectl
+    background: false
+    args:
+      - debug
+      - node/$NAME
+      - -it
+      - --image=nicolaka/netshoot:latest
+      - --profile=sysadmin
+
+  describe-events:
+    shortCut: Shift-E
+    description: "Triage — describe + recent events for object"
+    scopes:
+      - pods
+      - deployments
+      - statefulsets
+      - daemonsets
+      - services
+      - jobs
+      - cronjobs
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'kubectl describe $RESOURCE_NAME $NAME -n $NAMESPACE | tail -60; echo; echo "===== RECENT EVENTS ====="; kubectl get events -n $NAMESPACE --field-selector involvedObject.name=$NAME --sort-by=.lastTimestamp | tail -15'
+
+  # ── Vulnerability scanning ───────────────────────────────────────────────
+  scan-trivy:
+    shortCut: Shift-T
+    description: "Scan — Trivy on pod image(s)"
+    scopes:
+      - pods
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'for img in $(kubectl get pod $NAME -n $NAMESPACE -o jsonpath="{.spec.containers[*].image}"); do echo "### $img"; trivy image --quiet --ignore-unfixed --severity $INPUT_SEVERITY "$img"; done'
+    inputs:
+      - name: severity
+        label: "Severities"
+        type: dropdown
+        options: ["CRITICAL", "HIGH,CRITICAL", "MEDIUM,HIGH,CRITICAL"]
+        default: "HIGH,CRITICAL"
+        required: true
+
+  scan-grype:
+    shortCut: Shift-G
+    description: "Scan — Grype on pod image(s)"
+    scopes:
+      - pods
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'for img in $(kubectl get pod $NAME -n $NAMESPACE -o jsonpath="{.spec.containers[*].image}"); do echo "### $img"; grype "$img" --only-fixed -o table; done'
+
+  # ── Posture / hygiene ────────────────────────────────────────────────────
+  audit-popeye:
+    shortCut: Shift-P
+    description: "Audit — Popeye on namespace (best practices)"
+    scopes:
+      - namespaces
+    command: popeye
+    background: false
+    args:
+      - -n
+      - $NAME
+
+  deprecated-apis:
+    shortCut: Shift-V
+    description: "Audit — Pluto: deprecated / removed APIs in use"
+    scopes:
+      - pods
+      - deployments
+      - statefulsets
+      - daemonsets
+      - cronjobs
+      - namespaces
+      - nodes
+      - applications
+    command: pluto
+    background: false
+    args:
+      - detect-all-in-cluster
+      - -o
+      - wide
+
+  # ── RBAC ─────────────────────────────────────────────────────────────────
+  sa-permissions:
+    shortCut: Shift-W
+    description: "RBAC — effective permissions of ServiceAccount"
+    scopes:
+      - serviceaccounts
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'kubectl auth can-i --list --as=system:serviceaccount:$NAMESPACE/$NAME'
+
+  who-can:
+    shortCut: Shift-H
+    description: "RBAC — who can <verb> <resource>?"
+    scopes:
+      - pods
+      - deployments
+      - statefulsets
+      - daemonsets
+      - services
+      - secrets
+      - configmaps
+      - serviceaccounts
+      - roles
+      - clusterroles
+      - rolebindings
+      - clusterrolebindings
+      - namespaces
+      - nodes
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'kubectl who-can $INPUT_VERB $INPUT_RESOURCE 2>/dev/null || echo "kubectl-who-can absent, ou aucune correspondance"'
+    inputs:
+      - name: verb
+        label: "Verb"
+        type: dropdown
+        options: ["get", "list", "watch", "create", "update", "patch", "delete", "deletecollection", "impersonate", "escalate", "bind"]
+        default: "get"
+        required: true
+      - name: resource
+        label: "Resource (pods, secrets, * ...)"
+        type: string
+        required: true
+
+  # ── Secrets ──────────────────────────────────────────────────────────────
+  decode-secret:
+    shortCut: Shift-B
+    description: "Secrets — decode data locally (base64 only, no decryption)"
+    scopes:
+      - secrets
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'kubectl get secret $NAME -n $NAMESPACE -o json | jq -r "(.data // {}) | to_entries[] | \"\(.key)=\(.value|@base64d)\""'
+
+  # ── GitOps ───────────────────────────────────────────────────────────────
+  argo-status:
+    shortCut: Shift-I
+    description: "Argo CD — app status, conditions, last sync op"
+    scopes:
+      - applications
+    command: sh
+    background: false
+    args:
+      - -c
+      - 'kubectl get application $NAME -n $NAMESPACE -o yaml | yq ".status.sync.status, .status.sync.revision, .status.health.status, .status.conditions, .status.operationState.finishedAt, .status.operationState.message"'

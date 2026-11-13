@@ -1,0 +1,6 @@
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# Ensure ~/.local/bin is on PATH (claude, uv, wake, etc.)
+export PATH="$HOME/.local/bin:$PATH"

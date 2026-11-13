@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-appsupport-k9s.png" width="100%" alt="Kai Finds · dotfiles: k9s: views, aliases, and plugins">
+
 # k9s: views, aliases, and plugins
 
 [← Home](../../../../README.md) · [Upstream project: k9s](https://k9scli.io/) · [Detailed guide](../../../../docs/guides/k9s.md)
@@ -21,7 +23,8 @@ Example plugins: Shift-L calls stern, Shift-T Trivy, Shift-G Grype, and Shift-I 
 
 Destination: `~/Library/Application Support/k9s`. Check `k9s info` and your current context before you start. `clusters/` data, logs, backups and kubeconfig are excluded.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you want DevOps columns, jumps between related resources, and Trivy, Grype or stern one key away

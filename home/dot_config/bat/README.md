@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-bat.png" width="100%" alt="Kai Finds · dotfiles: bat: view files">
+
 # bat: view files
 
 [← Home](../../../README.md) · [Upstream project: bat](https://github.com/sharkdp/bat) · [Detailed guide](../../../docs/guides/autres-outils.md)
@@ -10,7 +12,8 @@ The Mocha theme ships under `themes/`. After applying, run `bat cache --build` s
 
 Destination: `~/.config/bat/config`, theme under `~/.config/bat/themes/`. Install bat separately. The Zsh `bcat` alias drops paging and decorations for plain reading.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you read code in the terminal and want line numbers and Git change markers

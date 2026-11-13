@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-zed.png" width="100%" alt="Kai Finds · dotfiles: Zed: a few visual preferences">
+
 # Zed: a few visual preferences
 
 [← Home](../../../README.md) · [Upstream project: Zed](https://zed.dev/) · [Detailed guide](../../../docs/guides/autres-outils.md)
@@ -10,7 +12,8 @@ The Mocha theme ships in `themes/catppuccin-mocha.json`. Destination: `~/.config
 
 The Brewfile does not install Zed, and we have not checked how it renders. These preferences add no language server, account or service. Take them or leave them on their own.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you use Zed next to Neovim and want both in the same palette

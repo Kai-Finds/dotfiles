@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-nvim-lua-plugins.png" width="100%" alt="Kai Finds · dotfiles: Neovim: our plugin choices">
+
 # Neovim: our plugin choices
 
 [← Home](../../../../../README.md) · [Upstream project: LazyVim](https://www.lazyvim.org/) · [Detailed guide](../../../../../docs/guides/neovim.md)

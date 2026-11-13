@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-nvim.png" width="100%" alt="Kai Finds · dotfiles: Neovim: our LazyVim configuration">
+
 # Neovim: our LazyVim configuration
 
 [← Home](../../../README.md) · [Upstream project: Neovim and LazyVim](https://www.lazyvim.org/) · [Detailed guide](../../../docs/guides/neovim.md)
@@ -22,7 +24,8 @@ First launch needs network access to download plugins. Language servers and tool
 
 Destination: `~/.config/nvim`. The isolated test does not start Neovim or its plugins.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you like LazyVim but want a quieter screen: no status line, no sidebar, Oil instead

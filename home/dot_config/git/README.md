@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-git.png" width="100%" alt="Kai Finds · dotfiles: Git: shared ignore rules">
+
 # Git: shared ignore rules
 
 [← Home](../../../README.md) · [Upstream project: Git](https://git-scm.com/docs/gitignore) · [Detailed guide](../../../docs/guides/autres-outils.md)
@@ -12,7 +14,8 @@ Our `.gitconfig` also includes `~/.gitconfig.local`, for your name, commit email
 
 One rule does not cover every secret. Review the diff and run a scan before you publish.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you use Claude Code and don't want its local settings in your commits

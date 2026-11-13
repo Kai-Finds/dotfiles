@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-bat-themes.png" width="100%" alt="Kai Finds · dotfiles: bat · Catppuccin Mocha">
+
 # bat · Catppuccin Mocha
 
 [← Application configuration](../README.md) · [Upstream theme](https://github.com/catppuccin/bat)

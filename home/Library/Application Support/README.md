@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-appsupport.png" width="100%" alt="Kai Finds · dotfiles: Application Support: k9s configuration">
+
 # Application Support: k9s configuration
 
 [← Home](../../../README.md) · [Upstream project: k9s](https://k9scli.io/topics/config/) · [Detailed guide](../../../docs/guides/k9s.md)

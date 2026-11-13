@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-dot_config.png" width="100%" alt="Kai Finds · dotfiles: Application configurations">
+
 # Application configurations
 
 [← Home](../../README.md) · [Upstream project: chezmoi](https://www.chezmoi.io/) · [Detailed guide](../../docs/README.md)

@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-appsupport-k9s-skins.png" width="100%" alt="Kai Finds · dotfiles: k9s: the Catppuccin Mocha theme">
+
 # k9s: the Catppuccin Mocha theme
 
 [← Home](../../../../../README.md) · [Upstream project: k9s and Catppuccin](https://k9scli.io/topics/skins/) · [Detailed guide](../../../../../docs/guides/k9s.md)

@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-nvim-lua-config.png" width="100%" alt="Kai Finds · dotfiles: Neovim: startup and options">
+
 # Neovim: startup and options
 
 [← Home](../../../../../README.md) · [Upstream project: LazyVim and lazy.nvim](https://www.lazyvim.org/configuration) · [Detailed guide](../../../../../docs/guides/neovim.md)

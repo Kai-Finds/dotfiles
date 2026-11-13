@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-docs.png" width="100%" alt="Kai Finds · dotfiles: Understand and adapt the dotfiles">
+
 # Understand and adapt the dotfiles
 
 [← Home](../README.md)

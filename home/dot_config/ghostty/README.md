@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-ghostty.png" width="100%" alt="Kai Finds · dotfiles: Ghostty: window, theme, and shortcuts">
+
 # Ghostty: window, theme, and shortcuts
 
 [← Home](../../../README.md) · [Upstream project: Ghostty](https://ghostty.org/docs) · [Detailed guide](../../../docs/guides/ghostty.md)
@@ -18,7 +20,8 @@ The mouse moves focus, and selecting text copies it. Tune `font-size` and `backg
 
 Destination: `~/.config/ghostty/config`. Install the app and fonts separately: the Brewfile declares Ghostty and a Nerd Font. The macOS options may not behave the same on Linux.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you want a fast native terminal with splits, and a see-through window that matches the rest of the setup

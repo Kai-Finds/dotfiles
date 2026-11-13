@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/hero.png" width="100%" alt="Kai Finds field note: dotfiles. Understand your terminal, then make it yours. Ghostty, Zsh, Starship, Neovim, k9s and tmux in one Catppuccin Mocha setup.">
+
 # Kai Finds · dotfiles
 
 [![Maintained by Kai Finds](https://img.shields.io/badge/maintained%20by-Kai%20Finds-00E5FF?style=flat-square&labelColor=0B0F14)](https://github.com/Kai-Finds) [![Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-0891B2?style=flat-square&labelColor=0B0F14)](LICENSE) ![macOS · Apple Silicon](https://img.shields.io/badge/macOS-Apple%20Silicon-1F2A37?style=flat-square&labelColor=0B0F14) ![Catppuccin Mocha](https://img.shields.io/badge/theme-Catppuccin%20Mocha-1F2A37?style=flat-square&labelColor=0B0F14)
@@ -9,7 +11,8 @@ Our settings for **Ghostty, Zsh, Starship, Neovim and k9s**, plus a few supporti
 
 [Start installing](docs/installation.md) · [Explore the guides](docs/README.md) · [Browse the file inventory](docs/inventaire.md)
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you're on a Mac and want to adopt one config at a time, with a diff before anything changes
@@ -103,6 +106,13 @@ To illustrate the guides with real screens, follow the [Ghostty capture guide](d
 Thanks to the maintainers of the linked projects, [Catppuccin](https://github.com/catppuccin/catppuccin), and the plugin authors referenced in our files. This repository distributes configuration, not the applications themselves.
 
 Apache-2.0; third-party components retain their respective licenses. Bundled Catppuccin theme sources are pinned in [theme-sources.json](docs/theme-sources.json), with their MIT notices in [docs/licenses/](docs/licenses/).
+
+
+<div align="center">
+
+<a href="https://www.threads.com/@kaifinds.ai"><img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/more-finds.png" width="100%" alt="More finds like this one. Follow Kai Finds on Threads (@kaifinds.ai), Facebook and kaifinds.sabaidev.la"></a>
+
+</div>
 
 ---
 

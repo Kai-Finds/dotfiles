@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-zsh.png" width="100%" alt="Kai Finds · dotfiles: Zsh: shell modules">
+
 # Zsh: shell modules
 
 [← Home](../../../README.md) · [Upstream project: Zsh](https://www.zsh.org/) · [Detailed guide](../../../docs/guides/shell.md)
@@ -23,7 +25,8 @@ Install the tools before you use their aliases. Suggestion and highlighting plug
 
 The Python module sources a script from the project: use it only in folders you trust. Some delete aliases and macOS functions do real things; read them first. Your own settings go in `~/.zshrc.local`.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you want short Git and Kubernetes aliases and a shell split into files you can read in a minute

@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-btop.png" width="100%" alt="Kai Finds · dotfiles: btop: monitor resources">
+
 # btop: monitor resources
 
 [← Home](../../../README.md) · [Upstream project: btop](https://github.com/aristocratos/btop) · [Detailed guide](../../../docs/guides/autres-outils.md)
@@ -10,7 +12,8 @@ The theme is `catppuccin_mocha`, shipped under `themes/`. Destination: `~/.confi
 
 `save_config_on_exit = true` saves your changes when btop quits. Those changes stay local; nothing syncs back here.
 
-## Worth it, or skip it?
+<a id="worth-it-or-skip-it"></a>
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/worth-it.png" width="100%" alt="Worth it, or skip it?">
 
 **✅ Worth it if**
 - you want `top` with graphs, a process tree and the same palette as your terminal

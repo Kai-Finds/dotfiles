@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-library.png" width="100%" alt="Kai Finds · dotfiles: Library: macOS settings">
+
 # Library: macOS settings
 
 [← Home](../../README.md) · [Upstream project: macOS and k9s](https://k9scli.io/topics/config/) · [Detailed guide](../../docs/guides/k9s.md)

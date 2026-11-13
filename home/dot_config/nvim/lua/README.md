@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-nvim-lua.png" width="100%" alt="Kai Finds · dotfiles: Lua: Neovim startup and plugins">
+
 # Lua: Neovim startup and plugins
 
 [← Home](../../../../README.md) · [Upstream project: Neovim](https://neovim.io/) · [Detailed guide](../../../../docs/guides/neovim.md)

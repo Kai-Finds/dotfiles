@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Kai-Finds/dotfiles/main/.github/kaifinds/dir-home.png" width="100%" alt="Kai Finds · dotfiles: Settings installed in your home directory">
+
 # Settings installed in your home directory
 
 [← Home](../README.md) · [Upstream project: chezmoi](https://www.chezmoi.io/) · [Detailed guide](../docs/installation.md)

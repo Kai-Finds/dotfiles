@@ -33,11 +33,13 @@ with tempfile.TemporaryDirectory(prefix="dotfiles-test-") as tmp:
     subprocess.run([*cmd, "verify"], check=True)
     expected = {Path(*("." + part[4:] if part.startswith("dot_") else part
                         for part in p.relative_to(source).parts))
-                for p in source.rglob("*") if p.is_file()}
+                for p in source.rglob("*")
+                if p.is_file() and p.name not in {"README.md", ".chezmoiignore"}}
     actual = {p.relative_to(target) for p in target.rglob("*") if p.is_file()}
     assert actual == expected, f"Unexpected install: {actual ^ expected}"
     assert not (target / ".kube").exists()
-    assert not (target / "README.md").exists()
+    assert not list(target.rglob("README.md")), "Documentation must not be installed"
+    assert not (target / ".chezmoiignore").exists()
     assert "debug-node:" in (target / "Library/Application Support/k9s/plugins.yaml").read_text()
     env = {**os.environ, "HOME": str(target), "ZDOTDIR": str(target),
            "XDG_CONFIG_HOME": str(target / ".config")}

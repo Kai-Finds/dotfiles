@@ -36,3 +36,7 @@ Le module Python Zsh active automatiquement un environnement virtuel trouvé dan
 ## Revenir en arrière
 
 Restaurer les fichiers depuis sa propre sauvegarde, puis ouvrir un nouveau shell. Ce dépôt ne génère pas automatiquement de sauvegarde ni de script de restauration. Ne jamais appliquer l'ensemble avant d'avoir lu le diff.
+
+## Documentation à côté des configurations
+
+Chaque dossier sous `home/` possède son README. `home/.chezmoiignore` exclut les README de toutes les destinations : les explications restent dans le dépôt, les réglages seuls sont installés.

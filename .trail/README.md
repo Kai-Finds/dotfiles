@@ -14,3 +14,7 @@ Commit this folder and `.claude/settings.json` once. After that, commit new
 learnings with the change they came from. Learnings are short summaries, never
 transcripts, and plain markdown without trail installed. What
 `.trail/.gitignore` lists stays on each machine.
+
+---
+
+<sub><b>Kai Finds</b> · Do more with AI · <a href="https://github.com/Kai-Finds">github.com/Kai-Finds</a> · <a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a></sub>

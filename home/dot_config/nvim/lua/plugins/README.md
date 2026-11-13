@@ -2,7 +2,7 @@
 
 [← Home](../../../../../README.md) · [Upstream project: LazyVim](https://www.lazyvim.org/) · [Detailed guide](../../../../../docs/guides/neovim.md)
 
-These declarations add to or override LazyVim. Features belong to the plugin projects named in each file.
+These files add to LazyVim or override it. The features belong to the plugin projects named in each file.
 
 | File | Choices |
 | --- | --- |
@@ -13,12 +13,16 @@ These declarations add to or override LazyVim. Features belong to the plugin pro
 | `lsp.lua` | Lua and Pyright settings, plus gopls `shadow` analysis |
 | `which-key.lua` | Shortcut menu presentation |
 
-In normal mode, the default LazyVim leader is Space: `-` opens Oil, `Space z` enables Zen, `Space Z` zooms, `Space k` opens k9s, and `Space R s` runs an HTTP request through Kulala in a suitable file.
+Leader is Space, as in LazyVim. In normal mode: `-` opens Oil, `Space z` Zen, `Space Z` zoom, `Space k` k9s, and `Space R s` sends an HTTP request through Kulala from a suitable file.
 
-Sidebar shortcuts are disabled: navigation uses Oil here. Editing its file list and saving can change real files.
+Sidebar shortcuts are off: Oil handles navigation. Careful: edit Oil's file list and save, and real files change.
 
-flatten.nvim is configured to route nested editing to the host instance and temporarily hide the k9s floating window. This workflow requires its plugins, k9s, and Kubernetes access; it is not run by the isolated check.
+flatten.nvim sends nested edits to the host Neovim and hides the k9s floating window while you edit. That flow needs its plugins, k9s and Kubernetes access. The isolated test does not run it.
 
 ## Apply these settings
 
-Read the [installation guide](../../../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.
+Read the [installation guide](../../../../../docs/installation.md) and review the chezmoi diff before applying. READMEs stay in the repository; chezmoi never installs them.
+
+---
+
+<sub><b>Kai Finds</b> · Do more with AI · <a href="https://github.com/Kai-Finds">github.com/Kai-Finds</a> · <a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a></sub>

@@ -2,12 +2,26 @@
 
 [← Home](../../../README.md) · [Upstream project: bat](https://github.com/sharkdp/bat) · [Detailed guide](../../../docs/guides/autres-outils.md)
 
-bat provides syntax-highlighted file display in the terminal. Our `config` enables the `numbers,changes` style: line numbers and change indicators, using Catppuccin Mocha.
+[![Maintained by Kai Finds](https://img.shields.io/badge/maintained%20by-Kai%20Finds-00E5FF?style=flat-square&labelColor=0B0F14)](https://github.com/Kai-Finds)
 
-The Mocha theme is included under `themes/`. After applying it, run `bat cache --build` so bat can load the theme, then try `bat README.md` from a repository.
+bat is `cat` with syntax highlighting. Our `config` turns on the `numbers,changes` style (line numbers and change markers) in Catppuccin Mocha.
 
-Destination: `~/.config/bat/config`, with the theme under `~/.config/bat/themes/`. Install bat separately. The Zsh `bcat` alias removes pagination and decorations for simpler reading.
+The Mocha theme ships under `themes/`. After applying, run `bat cache --build` so bat finds it, then try `bat README.md` in any repository.
+
+Destination: `~/.config/bat/config`, theme under `~/.config/bat/themes/`. Install bat separately. The Zsh `bcat` alias drops paging and decorations for plain reading.
+
+## Worth it, or skip it?
+
+**✅ Worth it if**
+- you read code in the terminal and want line numbers and Git change markers
+
+**❌ Skip it if**
+- you pipe file contents into other tools: use `bcat` or plain `cat` there
 
 ## Apply these settings
 
-Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. READMEs stay in the repository; chezmoi never installs them.
+
+---
+
+<sub><b>Kai Finds</b> · Do more with AI · <a href="https://github.com/Kai-Finds">github.com/Kai-Finds</a> · <a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a></sub>

@@ -2,12 +2,26 @@
 
 [← Home](../../../README.md) · [Upstream project: Zed](https://zed.dev/) · [Detailed guide](../../../docs/guides/autres-outils.md)
 
-Zed is a graphical editor independent of Neovim. Our `settings.json` selects a 16 pt interface, 15 pt text, Catppuccin Mocha, and Zed's default icons.
+[![Maintained by Kai Finds](https://img.shields.io/badge/maintained%20by-Kai%20Finds-00E5FF?style=flat-square&labelColor=0B0F14)](https://github.com/Kai-Finds)
 
-The Mocha theme is included in `themes/catppuccin-mocha.json`. Destination: `~/.config/zed/settings.json`, with the theme under `~/.config/zed/themes/`. Settings support comments and trailing commas, so do not treat this file as strict JSON.
+Zed is a graphical editor, separate from Neovim. Our `settings.json` sets a 16 pt interface, 15 pt text, Catppuccin Mocha, and Zed's default icons.
 
-Zed is not installed by the Brewfile, and its graphical rendering has not been validated here. These preferences do not add a language server, account, or service connection. They can be adopted independently of the remaining dotfiles.
+The Mocha theme ships in `themes/catppuccin-mocha.json`. Destination: `~/.config/zed/settings.json`, theme under `~/.config/zed/themes/`. The settings file allows comments and trailing commas, so it is not strict JSON.
+
+The Brewfile does not install Zed, and we have not checked how it renders. These preferences add no language server, account or service. Take them or leave them on their own.
+
+## Worth it, or skip it?
+
+**✅ Worth it if**
+- you use Zed next to Neovim and want both in the same palette
+
+**❌ Skip it if**
+- you want a tuned Zed setup: this is fonts and a theme, nothing more
 
 ## Apply these settings
 
-Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. READMEs stay in the repository; chezmoi never installs them.
+
+---
+
+<sub><b>Kai Finds</b> · Do more with AI · <a href="https://github.com/Kai-Finds">github.com/Kai-Finds</a> · <a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a></sub>

@@ -2,10 +2,14 @@
 
 [← Application configuration](../README.md) · [Upstream theme](https://github.com/catppuccin/btop)
 
-`catppuccin_mocha.theme` is the official Catppuccin btop theme. Our parent `btop.conf` selects it with `color_theme = "catppuccin_mocha"`.
+`catppuccin_mocha.theme` is the official Catppuccin theme for btop. The parent `btop.conf` selects it with `color_theme = "catppuccin_mocha"`.
 
-The theme is copied to `~/.config/btop/themes/`. Restart btop to load the updated configuration. Our background setting remains transparent, inheriting the terminal background.
+It is copied to `~/.config/btop/themes/`. Restart btop to load it. The background stays transparent and takes the terminal's color.
 
-Pinned source versions are recorded in [theme-sources.json](../../../../docs/theme-sources.json); MIT notices are retained in [docs/licenses/](../../../../docs/licenses/). These assets belong to their upstream authors.
+Pinned source versions: [theme-sources.json](../../../../docs/theme-sources.json). MIT notices: [docs/licenses/](../../../../docs/licenses/). The theme belongs to its upstream authors.
 
-This README is excluded from chezmoi installation.
+chezmoi does not install this README.
+
+---
+
+<sub><b>Kai Finds</b> · Do more with AI · <a href="https://github.com/Kai-Finds">github.com/Kai-Finds</a> · <a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a></sub>

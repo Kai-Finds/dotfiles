@@ -1,14 +1,28 @@
-# Kai-Finds · dotfiles
+# Kai Finds · dotfiles
 
-**Understand your terminal, then make it yours.** A macOS / Apple Silicon setup to explore, adopt one piece at a time, and adapt to your habits.
+[![Maintained by Kai Finds](https://img.shields.io/badge/maintained%20by-Kai%20Finds-00E5FF?style=flat-square&labelColor=0B0F14)](https://github.com/Kai-Finds) [![Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-0891B2?style=flat-square&labelColor=0B0F14)](LICENSE) ![macOS · Apple Silicon](https://img.shields.io/badge/macOS-Apple%20Silicon-1F2A37?style=flat-square&labelColor=0B0F14) ![Catppuccin Mocha](https://img.shields.io/badge/theme-Catppuccin%20Mocha-1F2A37?style=flat-square&labelColor=0B0F14)
 
-This repository shares our settings for **Ghostty, Zsh, Starship, Neovim, and k9s**, plus a few supporting tools. Each application is developed by its own upstream project; our contribution is the selection of settings, shortcuts, themes, and integrations.
+**Understand your terminal, then make it yours.**
+A macOS / Apple Silicon setup you can read, try one file at a time, and bend to your habits.
+
+Our settings for **Ghostty, Zsh, Starship, Neovim and k9s**, plus a few supporting tools. The apps belong to their upstream projects. What we add: the settings, shortcuts, themes and integrations we picked, each one explained.
 
 [Start installing](docs/installation.md) · [Explore the guides](docs/README.md) · [Browse the file inventory](docs/inventaire.md)
 
+## Worth it, or skip it?
+
+**✅ Worth it if**
+- you're on a Mac and want to adopt one config at a time, with a diff before anything changes
+- you want one palette (Catppuccin Mocha) across Ghostty, Starship, Neovim, k9s, tmux, bat, btop and Zed
+- you work with Kubernetes and want k9s and Neovim wired together
+
+**❌ Skip it if**
+- you're on Linux or Windows: this is a macOS snapshot, and some options behave differently elsewhere
+- you want one command that sets up a whole machine: adoption is gradual on purpose, and Zsh plugins, TPM and several k9s tools install separately
+
 ## What does each tool do?
 
-Several applications work together when you open a terminal:
+Open a terminal and several programs work together:
 
 ```mermaid
 flowchart TD
@@ -89,3 +103,13 @@ To illustrate the guides with real screens, follow the [Ghostty capture guide](d
 Thanks to the maintainers of the linked projects, [Catppuccin](https://github.com/catppuccin/catppuccin), and the plugin authors referenced in our files. This repository distributes configuration, not the applications themselves.
 
 Apache-2.0; third-party components retain their respective licenses. Bundled Catppuccin theme sources are pinned in [theme-sources.json](docs/theme-sources.json), with their MIT notices in [docs/licenses/](docs/licenses/).
+
+---
+
+<div align="center">
+
+<sub><b>Kai Finds</b> · Do more with AI · The AI tools that turn one person into a team.<br>
+Sourced. No hype. Every claim here points to something you can check.<br>
+<a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a> · <a href="https://www.threads.com/@kaifinds.ai">Threads</a> · <a href="https://www.facebook.com/122105394627540019">Facebook</a> · <a href="https://github.com/Kai-Finds">All repos</a></sub>
+
+</div>

@@ -2,7 +2,9 @@
 
 [← Home](../../../README.md) · [Upstream project: Ghostty](https://ghostty.org/docs) · [Detailed guide](../../../docs/guides/ghostty.md)
 
-Ghostty provides the terminal window, tabs, splits, and text rendering. Our `config` selects Catppuccin Mocha, opacity 0.85, JetBrains Mono at 20 pt, and a non-blinking block cursor.
+[![Maintained by Kai Finds](https://img.shields.io/badge/maintained%20by-Kai%20Finds-00E5FF?style=flat-square&labelColor=0B0F14)](https://github.com/Kai-Finds)
+
+Ghostty is the terminal window: tabs, splits and text rendering. Our `config` picks Catppuccin Mocha, 0.85 opacity, JetBrains Mono at 20 pt, and a steady block cursor.
 
 | Keys | Setting |
 | --- | --- |
@@ -12,10 +14,22 @@ Ghostty provides the terminal window, tabs, splits, and text rendering. Our `con
 | Cmd-Shift-← / → | Switch tabs |
 | Cmd-K | Clear the screen |
 
-The mouse changes focus, and selecting text copies it to the clipboard. Adjust `font-size` and `background-opacity` for readability.
+The mouse moves focus, and selecting text copies it. Tune `font-size` and `background-opacity` until it reads well on your screen.
 
-Destination: `~/.config/ghostty/config`. The application and fonts must be installed separately; the Brewfile declares Ghostty and a Nerd Font. macOS options do not guarantee the same result on Linux.
+Destination: `~/.config/ghostty/config`. Install the app and fonts separately: the Brewfile declares Ghostty and a Nerd Font. The macOS options may not behave the same on Linux.
+
+## Worth it, or skip it?
+
+**✅ Worth it if**
+- you want a fast native terminal with splits, and a see-through window that matches the rest of the setup
+
+**❌ Skip it if**
+- you live in tmux splits already and want an opaque window: drop `background-opacity` or skip the file
 
 ## Apply these settings
 
-Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. README files remain in the repository and are excluded from installation.
+Read the [installation guide](../../../docs/installation.md) and review the chezmoi diff before applying. READMEs stay in the repository; chezmoi never installs them.
+
+---
+
+<sub><b>Kai Finds</b> · Do more with AI · <a href="https://github.com/Kai-Finds">github.com/Kai-Finds</a> · <a href="https://kaifinds.sabaidev.la">kaifinds.sabaidev.la</a></sub>
